@@ -34,7 +34,7 @@ gem 'net-imap'
 gem 'net-pop'
 gem 'net-smtp'
 gem 'devise'
-
+gem 'dotenv-rails'
 gem 'omniauth-twitter'
 
 group :development, :test do
