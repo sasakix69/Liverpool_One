@@ -35,6 +35,7 @@ gem 'dotenv-rails'
 gem 'net-imap'
 gem 'net-pop'
 gem 'net-smtp'
+gem 'omniauth'
 gem 'omniauth-rails_csrf_protection'
 gem 'omniauth-twitter'
 

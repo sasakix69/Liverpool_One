@@ -261,6 +261,7 @@ DEPENDENCIES
   net-imap
   net-pop
   net-smtp
+  omniauth
   omniauth-rails_csrf_protection
   omniauth-twitter
   pg (~> 1.1)
