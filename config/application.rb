@@ -47,7 +47,7 @@ module LiverpoolOne
     # Don't generate system test files.
     config.generators.system_tests = nil
 
-    
-   
+    # 日本語化
+    config.i18n.default_locale = :ja
   end
 end
