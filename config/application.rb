@@ -26,7 +26,6 @@ module LiverpoolOne
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
     config.generators do |g|
-      g.helper false # <= helperファイルを作成しない
       g.skip_routes true # <= routes.rbを変更しない
       g.test_framework  :rspec, # <= テストにrspecを使用する
                         view_specs: false,
