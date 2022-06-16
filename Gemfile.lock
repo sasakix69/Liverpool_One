@@ -75,6 +75,9 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-bootstrap-views (1.1.0)
+    devise-i18n (1.10.2)
+      devise (>= 4.8.0)
     digest (3.1.0)
     dotenv (2.7.6)
     dotenv-rails (2.7.6)
@@ -258,6 +261,8 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
   devise
+  devise-bootstrap-views
+  devise-i18n
   dotenv-rails
   jbuilder (~> 2.7)
   listen (~> 3.3)
