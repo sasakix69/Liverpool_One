@@ -26,7 +26,6 @@ module LiverpoolOne
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
     config.generators do |g|
-      g.helper false # <= helperファイルを作成しない
       g.skip_routes true # <= routes.rbを変更しない
       g.test_framework  :rspec, # <= テストにrspecを使用する
                         view_specs: false,
@@ -42,10 +41,13 @@ module LiverpoolOne
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
-    # config.time_zone = "Central Time (US & Canada)"
+    config.time_zone = 'Asia/Tokyo'
     # config.eager_load_paths << Rails.root.join("extras")
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # 日本語化
+    config.i18n.default_locale = :ja
   end
 end

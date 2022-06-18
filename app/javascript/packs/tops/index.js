@@ -6,6 +6,22 @@
 //
 // Scripts
 // 
+import Rails from "@rails/ujs"
+import Turbolinks from "turbolinks"
+import * as ActiveStorage from "@rails/activestorage"
+import "channels"
+
+// 上で読み込んだものを起動
+Rails.start()
+Turbolinks.start()
+ActiveStorage.start()
+
+import '../../stylesheets/tops.scss'
+
+// Webpackerに画像ファイルをインポート
+const images = require.context('../../images', true)
+const imagePath = (name) => images(name, true)
+
 
 window.addEventListener('DOMContentLoaded', event => {
 
