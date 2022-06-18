@@ -16,7 +16,6 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-import 'bootstrap'
 import '../../stylesheets/tops.scss'
 
 // Webpackerに画像ファイルをインポート
