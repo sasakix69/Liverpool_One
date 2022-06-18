@@ -1,7 +1,8 @@
 <h1><%= t('.sign_in') %></h1>
-<%= render 'layouts/flash_messages' %>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= render 'layouts/flash_messages' %>
+
   <div class="form-group">
     <%= f.label :email %>
     <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
