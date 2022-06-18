@@ -49,7 +49,7 @@ ja:
       confirmation_instructions:
         action: メールアドレスの確認
         greeting: "%{recipient}様"
-        instruction: 以下のリンクをクリックし、メールアドレスの確認手続を完了させてください。
+        instruction: 以下のリンクをクリックし、メールアドレスの確認手続きを完了させてください。
         subject: メールアドレス確認メール
       email_changed:
         greeting: こんにちは、%{recipient}様。
