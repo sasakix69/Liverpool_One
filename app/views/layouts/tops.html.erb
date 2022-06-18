@@ -37,8 +37,6 @@
                             <li class="nav-item"><%= link_to 'プロフィール変更', edit_user_registration_path, class: 'nav-link' %></li>
                             <li class="nav-item"><%= link_to 'ログアウト', destroy_user_session_path, class: 'nav-link', method: :delete %></li>
                             <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">利用規約</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">プライバシーポリシー</a></li>
                         <% else %>
                             <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                             <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
@@ -46,8 +44,6 @@
                             <li class="nav-item"><%= link_to 'サインアップ', new_user_registration_path, class: 'nav-link' %></li>
                             <li class="nav-item"><%= link_to 'ログイン', new_user_session_path, class: 'nav-link' %></li>
                             <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">利用規約</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">プライバシーポリシー</a></li>
                         <% end %>
                     </ul>
                 </div>
@@ -55,7 +51,7 @@
         </nav>
         <!-- Masthead-->
         <header class="masthead">
-            <p class="notice"><%= notice %></p>
+            <p class="notice alert-success"><%= notice %></p>
             <p class="alert"><%= alert %></p>
             <div class="container px-4 px-lg-5 h-100">
                 <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
@@ -267,6 +263,8 @@
         <footer class="bg-light py-5">
             <div class="container px-4 px-lg-5">
                 <div class="small text-center text-muted">Copyright &copy; 2022 - Liverpool One</div>
+                <div class="small text-center text-muted">利用規約</div>
+                <div class="small text-center text-muted">プライバシーポリシー</div>
             </div>
         </footer>
         <!-- Bootstrap core JS-->
