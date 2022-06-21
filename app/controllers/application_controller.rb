@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
   # deviseコントローラーにストロングパラメータを追加する
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-
   private
 
   def sign_in_required
@@ -14,7 +13,6 @@ class ApplicationController < ActionController::Base
 
   protected
 
-   
   def configure_permitted_parameters
     # サインアップ時のストロングパラメータ
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username])

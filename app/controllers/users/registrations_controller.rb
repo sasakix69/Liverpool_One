@@ -40,13 +40,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   protected
 
-  #アカウント登録後のリダイレクト先
+  # アカウント登録後のリダイレクト先
   def after_inactive_sign_up_path_for(_resource)
     tops_show_path
   end
 
-  #アカウント編集後のリダイレクト先
-  def after_update_path_for(resource)
+  # アカウント編集後のリダイレクト先
+  def after_update_path_for(_resource)
     tops_show_path
   end
 

@@ -20,15 +20,15 @@ class Users::SessionsController < Devise::SessionsController
 
   protected
 
-  #ログイン後のリダイレクト先
-  def after_sign_in_path_for(resource)
+  # ログイン後のリダイレクト先
+  def after_sign_in_path_for(_resource)
     tops_show_path
-  end 
+  end
 
-  #ログアウト後のリダイレクト先
-  def after_sign_out_path_for(resource)
+  # ログアウト後のリダイレクト先
+  def after_sign_out_path_for(_resource)
     root_path
-  end 
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
