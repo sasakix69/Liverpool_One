@@ -17,12 +17,19 @@
           <li class="nav-item">
             <a class="nav-link" href="#">掲示板</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">ニュース</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">試合日程</a>
+          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               ドロップダウン
             </a>
             <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
               <li><a class="dropdown-item" href="#">マイページ</a></li>
+              <li><%= link_to 'プロフィール変更', edit_user_registration_path, class: 'dropdown-item' %></li>
               <li><%= link_to 'ログアウト', destroy_user_session_path, class: 'dropdown-item', method: :get %></li>
               <li>
                 <hr class="dropdown-divider">
