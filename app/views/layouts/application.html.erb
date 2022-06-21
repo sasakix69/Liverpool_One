@@ -13,6 +13,10 @@
   </head>
 
   <body>
+    <% unless controller.devise_controller? %>
+      <%= render 'shared/header' %>
+    <% end %>
+      
     <% if controller.devise_controller? %>
       <div class="container-fluid py-4 mw-md">
         <%= yield %>
