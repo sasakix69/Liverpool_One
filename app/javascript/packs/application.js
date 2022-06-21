@@ -9,6 +9,15 @@ window.$ = window.jQuery = jquery
 import * as bootstrap from "bootstrap"
 window.bootstrap = bootstrap
 
+import Rails from "@rails/ujs"
+import Turbolinks from "turbolinks"
+import * as ActiveStorage from "@rails/activestorage"
+import "channels"
+
+Rails.start()
+Turbolinks.start()
+ActiveStorage.start()
+
 import '../stylesheets/application'
 
 // Uncomment to copy all static images under ../images to the output folder and reference
