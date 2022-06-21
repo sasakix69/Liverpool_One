@@ -3,17 +3,22 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
+// Bootstrap 5で、ProvidePluginを使う設定
+import jquery from "jquery"
+window.$ = window.jQuery = jquery
+import * as bootstrap from "bootstrap"
+window.bootstrap = bootstrap
+
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
-// 上で読み込んだものを起動
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-import '../stylesheets/application.scss'
+import '../stylesheets/application'
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)

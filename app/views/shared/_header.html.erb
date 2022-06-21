@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg bg-light fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Liverpool One</a>
+    <button type="button" class="navbar-light navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-expanded="false" aria-controls="offcanvasNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Liverpool One</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="閉じる"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">ホーム</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">掲示板</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">ニュース</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">試合日程</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              ドロップダウン
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+              <li><a class="dropdown-item" href="#">マイページ</a></li>
+              <li><%= link_to 'プロフィール変更', edit_user_registration_path, class: 'dropdown-item' %></li>
+              <li><%= link_to 'ログアウト', destroy_user_session_path, class: 'dropdown-item', method: :delete %></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">その他</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input type="search" class="form-control me-2" placeholder="検索" aria-label="検索">
+          <button class="btn btn-outline-success flex-shrink-0" type="submit">検索</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</nav>
