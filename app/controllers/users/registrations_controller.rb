@@ -38,7 +38,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
+
+  #アカウント登録後のリダイレクト先
+  def after_inactive_sign_up_path_for(_resource)
+    tops_show_path
+  end
+
+  #アカウント編集後のリダイレクト先
+  def after_update_path_for(resource)
+    tops_show_path
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
