@@ -1,6 +1,10 @@
 @import '~bootstrap/scss/bootstrap.scss';
 
-
 .mw-md {
   max-width: 576px;
+}
+
+// ヘッダーとbodyの要素が被らないようにpaddingを設定
+body {
+  padding-top: 70px;
 }
