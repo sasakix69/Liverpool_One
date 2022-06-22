@@ -30,9 +30,10 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  # version :thumb do
-  process resize_to_fit: [200, 200]
-  # end
+  # .image.thumb.urlとして使える
+  version :thumb do
+    process resize_to_fit: [200, 200]
+  end
 
   # Add an allowlist of extensions which are allowed to be uploaded.
   # For images you might use something like this:
@@ -45,4 +46,14 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+
+  # 画像の反転を防ぐ
+  def auto
+    manipulate! do|image|
+      image.auto_orient
+    end
+  end
+
+  process :auto
+
 end
