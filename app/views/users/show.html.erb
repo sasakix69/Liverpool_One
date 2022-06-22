@@ -1,2 +1,6 @@
 <h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<p><%= User.human_attribute_name(:username) %> : <%= @user.username %></p>
+<p>メールアドレス : <%= @user.email %></p>
+<p>プロフィール画像 : <%= @user.avatar %></p>
+<p>ファン歴 : <%= @user.kop_history %>年</p>
+<p>好きな選手 : <%= @user.favorite_player %></p>
