@@ -6,7 +6,7 @@ class User < ApplicationRecord
          :confirmable, :lockable, :timeoutable, :trackable, :omniauthable
 
   validates :username, presence: true
-  mount_uploader :avatar, AvatarUploader
+  mount_uploader :image, AvatarUploader
 
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first

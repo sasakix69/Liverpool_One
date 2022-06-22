@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2022_06_21_100936) do
     t.string "uid"
     t.string "provider"
     t.string "username"
-    t.string "avatar"
+    t.string "image"
     t.integer "kop_history"
     t.string "favorite_player"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
