@@ -1,6 +1,6 @@
 <h1>Users#show</h1>
 <p><%= User.human_attribute_name(:username) %> : <%= @user.username %></p>
-<p>メールアドレス : <%= @user.email %></p>
-<p>プロフィール画像 : <%= @user.avatar %></p>
-<p>ファン歴 : <%= @user.kop_history %>年</p>
-<p>好きな選手 : <%= @user.favorite_player %></p>
+<p><%= User.human_attribute_name(:email) %> : <%= @user.email %></p>
+<p><%= User.human_attribute_name(:avatar) %> : <%= @user.avatar %></p>
+<p><%= User.human_attribute_name(:kop_history) %> : <%= @user.kop_history %>年</p>
+<p><%= User.human_attribute_name(:favorite_player) %> : <%= @user.favorite_player %></p>
