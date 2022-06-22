@@ -15,6 +15,11 @@
 
   <div class="form-group">
     <%= f.label :image %>
+    <% if @user.image? %>
+      <%= image_tag @user.image.url %>
+    <% else %>
+      <%= image_pack_tag 'default.jpg' %>
+    <% end %>
     <%= f.file_field :image, class: 'form-control' %>
   </div>
 
