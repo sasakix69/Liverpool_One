@@ -283,6 +283,7 @@ DEPENDENCIES
   dotenv-rails
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  mini_magick
   net-imap
   net-pop
   net-smtp
