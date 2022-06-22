@@ -2,9 +2,9 @@
 <p><%= User.human_attribute_name(:username) %> : <%= @user.username %></p>
 <p><%= User.human_attribute_name(:email) %> : <%= @user.email %></p>
 <% if @user.image? %>
-  <%= image_tag @user.image.url %>
+  <%= image_tag @user.image.thumb.url, class: "user-icon" %>
 <% else %>
-  <%= image_pack_tag 'default.jpg' %>
+  <%= image_pack_tag 'default.jpg', alt: "user-icon", size: "200", class: "user-icon" %>
 <% end %>
 <p><%= User.human_attribute_name(:kop_history) %> : <%= @user.kop_history %>年</p>
 <p><%= User.human_attribute_name(:favorite_player) %> : <%= @user.favorite_player %></p>
