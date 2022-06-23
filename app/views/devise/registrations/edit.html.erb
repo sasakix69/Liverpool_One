@@ -4,19 +4,9 @@
   <%= bootstrap_devise_error_messages! %>
 
   <div class="form-group">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, class: 'form-control' %>
-  </div>
-  
-  <div class="form-group">
-    <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
     <%= f.label :image %>
     <% if @user.image? %>
-      <%= image_tag @user.image.thumb.url, class: 'user-icon' %>
+      <%= image_tag @user.image.thumb.url, size: "200", class: 'user-icon' %>
     <% else %>
       <%= image_pack_tag 'default.jpg', alt: "user-icon", size: "200", class: "user-icon" %>
     <% end %>
@@ -24,8 +14,18 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :username %><br />
+    <%= f.text_field :username, class: 'form-control' %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
+  </div></br>
+
+  <div class="form-group">
     <%= f.label :kop_history %>
-    <%= f.number_field :kop_history %>年
+    <%= f.number_field :kop_history %> 年
   </div>
 
   <div class="form-group">
