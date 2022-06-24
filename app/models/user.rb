@@ -4,8 +4,8 @@ class User < ApplicationRecord
          :confirmable, :lockable, :timeoutable, :trackable, :omniauthable
 
   validates :username, presence: true
-  has_many :tweets
-  has_many :comments
+  has_many :tweets, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   mount_uploader :image, ImageUploader
 
