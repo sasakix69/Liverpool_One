@@ -11,6 +11,9 @@ ja:
         current_sign_in_ip: 
         username: ユーザー名
         email: Eメール
+        image: プロフィール画像
+        kop_history: ファン歴
+        favorite_player: 好きな選手
         encrypted_password: 暗号化パスワード
         failed_attempts: 失敗したログイン試行回数
         last_sign_in_at: 最終ログイン時刻

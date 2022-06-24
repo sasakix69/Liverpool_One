@@ -5,6 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable, :lockable, :timeoutable, :trackable, :omniauthable
 
+  validates :username, presence: true
+  mount_uploader :image, ImageUploader
+
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
 
@@ -13,7 +16,9 @@ class User < ApplicationRecord
       provider: auth.provider,
       username: auth.info.nickname,
       email: User.dummy_email(auth),
-      password: Devise.friendly_token[0, 20]
+      password: Devise.friendly_token[0, 20],
+      # carrierwaveのアップローダーを:imageにマウントさせてるのでクロスドメインで情報を取得する場合、image:からremote_image_urlに変更
+      remote_image_url: auth.info.image
     )
     # ダミーメールに承認メールが送られてしまうので、送られないように設定
     user.skip_confirmation!

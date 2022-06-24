@@ -2,6 +2,7 @@
 
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  # before_action :authenticate_user!
   # deviseコントローラーにストロングパラメータを追加する
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -17,6 +18,6 @@ class ApplicationController < ActionController::Base
     # サインアップ時のストロングパラメータ
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
     # アカウント編集時のストロングパラメータ
-    devise_parameter_sanitizer.permit(:account_update, keys: [:username])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:username, :image, :kop_history, :favorite_player])
   end
 end

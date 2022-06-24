@@ -47,7 +47,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # アカウント編集後のリダイレクト先
   def after_update_path_for(_resource)
-    tops_show_path
+    user_path(id: current_user.id)
   end
 
   # If you have extra params to permit, append them to the sanitizer.
