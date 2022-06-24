@@ -11,7 +11,7 @@ unless Rails.env.development? || Rails.env.test?
       aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
       region: ENV['AWS_DEFAULT_REGION'],
     }
-
+    config.fog_public = false
     config.fog_provider = 'fog/aws'
     config.fog_directory  = 'oneliverpool'
     config.cache_storage = :fog
