@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2022_06_24_050940) do
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
-    t.text "body"
+    t.string "body", null: false
     t.bigint "user_id"
     t.bigint "tweet_id"
     t.datetime "created_at", precision: 6, null: false
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2022_06_24_050940) do
   end
 
   create_table "tweets", force: :cascade do |t|
-    t.text "body"
+    t.string "body", null: false
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
