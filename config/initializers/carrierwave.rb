@@ -7,7 +7,9 @@ unless Rails.env.development? || Rails.env.test?
       region: ENV['AWS_DEFAULT_REGION'],
     }
 
+    config.fog_provider = 'fog/aws'
     config.fog_directory  = 'oneliverpool'
     config.cache_storage = :fog
+    config.asset_host = 'https://s3.amazonaws.com/oneliverpool'
   end
 end
