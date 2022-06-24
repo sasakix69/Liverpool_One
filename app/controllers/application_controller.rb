@@ -18,6 +18,6 @@ class ApplicationController < ActionController::Base
     # サインアップ時のストロングパラメータ
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
     # アカウント編集時のストロングパラメータ
-    devise_parameter_sanitizer.permit(:account_update, keys: [:username, :image, :kop_history, :favorite_player])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[username image kop_history favorite_player])
   end
 end
