@@ -1,0 +1,27 @@
+<div class="container pt-5">
+  <div class="row mb-3">
+    <div class="col-lg-8 offset-lg-2">
+      <h1><%= t('.title') %></h1>
+      <!-- ツイート内容 -->
+      <article class="card">
+        <div class="card-body">
+          <div class='row'>
+            <div class='col-md-3'>
+              <%= image_tag @tweet.tweet_image.url, class: 'card-img-top img-fluid', if @tweet.tweet_image? %> 
+            </div>
+            <div class='col-md-9'>
+              <% if current_user.own?(@tweet) %>
+                <%= render 'crud_menus', tweet: @tweet %>
+              <% end %>
+              <ul class="list-inline">
+                <li class="list-inline-item">by <%= @tweet.user.username %></li>
+                <li class="list-inline-item"><%= l @tweet.created_at, format: :long %></li>
+              </ul>
+            </div>
+          </div>
+          <p><%= simple_format(@tweet.body) %></p>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>  
