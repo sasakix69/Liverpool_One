@@ -1,0 +1,7 @@
+<%= link_to edit_tweet_path(tweet), id: "button-edit-#{tweet.id}" do %>
+  <i class="fas fa-pen"></i>
+<% end %>
+   
+<%= link_to tweet_path(tweet), id: "button-delete-#{tweet.id}", method: :delete, data: {confirm: "削除しますか？"} do %>
+  <i class="fas fa-trash"></i>
+<% end %>

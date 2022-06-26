@@ -1,8 +1,8 @@
 <main role="main" class="container">
 
   <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded shadow-sm">
-    <% if @user.image? %>
-      <%= image_tag @user.image.thumb.url, class: 'user-icon mr-3', alt: "", size: '140' %>
+    <% if @user.avatar? %>
+      <%= image_tag @user.avatar.thumb.url, class: 'user-icon mr-3', alt: "", size: '140' %>
     <% else %>
       <%= image_pack_tag 'default.jpg', alt: "user-icon", class: "mr-3", size: '140' %>
     <% end %>

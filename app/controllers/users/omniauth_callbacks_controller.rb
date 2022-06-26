@@ -22,5 +22,4 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def after_sign_in_path_for(_resource)
     tops_show_path
   end
-  
 end
