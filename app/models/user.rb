@@ -29,4 +29,9 @@ class User < ApplicationRecord
   def self.dummy_email(auth)
     "#{auth.uid}-#{auth.provider}@example.com"
   end
+
+  def own?(object)
+    id == object.user_id
+  end
+  
 end
