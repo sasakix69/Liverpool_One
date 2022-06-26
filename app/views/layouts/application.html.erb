@@ -22,6 +22,7 @@
         <%= yield %>
       </div>
     <% else %>
+      <%= render 'shared/flash_messages' %>
       <%= yield %>
     <% end %>
   </body>
