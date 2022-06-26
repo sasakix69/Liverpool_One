@@ -7,7 +7,7 @@
         <div class="card-body">
           <div class='row'>
             <div class='col-md-3'>
-              <%= image_tag @tweet.tweet_image.url, class: 'card-img-top img-fluid', if @tweet.tweet_image? %> 
+              <%= image_tag @tweet.tweet_image.url, class: 'card-img-top img-fluid' if @tweet.tweet_image? %> 
             </div>
             <div class='col-md-9'>
               <% if current_user.own?(@tweet) %>
