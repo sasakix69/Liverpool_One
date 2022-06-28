@@ -36,4 +36,18 @@ class User < ApplicationRecord
   def own?(object)
     id == object.user_id
   end
+
+  # <<演算子でbookmarks.create!(tweet_id: tweet.id)と同様の処理を行う
+  def bookmark(tweet)
+    bookmark_tweets << tweet
+  end
+
+  def unbookmark(tweet)
+    bookmark_tweets.destroy(tweet)
+  end
+
+  # ログインしているユーザーに紐づいたブックマークのレコードに引数で渡された掲示板モデルと紐づいたレコードが存在するか。存在すればユーザーはその掲示板をブックマークしていると判定、存在しなければブックマークされていないと判定できる
+  def bookmark?(tweet)
+    bookmark_tweets.include?(tweet)
+  end
 end
