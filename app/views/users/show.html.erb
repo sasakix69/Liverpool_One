@@ -13,12 +13,12 @@
   </div>
 
   <div class="my-3 p-3 bg-white rounded shadow-sm">
-    <!-- <h6 class="border-bottom border-gray pb-2 mb-0">Suggestions</h6> -->
+    <!-- <h6 class="border-bottom border-gray pb-2 mb-0">Account Information</h6> -->
     <h6 class="border-bottom border-gray pb-2 mb-0">アカウント情報</h6>
     <div class="media text-muted pt-3">
       <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
         <div class="d-flex justify-content-between align-items-center w-100">
-          <!-- <strong class="text-gray-dark">Full Name</strong> -->
+          <!-- <strong class="text-gray-dark">Email</strong> -->
           <strong class="text-gray-dark"><%= User.human_attribute_name(:email) %> : <%= @user.email %></strong>
         </div>
       </div>
@@ -26,7 +26,7 @@
     <div class="media text-muted pt-3">
       <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
         <div class="d-flex justify-content-between align-items-center w-100">
-          <!-- <strong class="text-gray-dark">Full Name</strong> -->
+          <!-- <strong class="text-gray-dark">Kop History</strong> -->
           <strong class="text-gray-dark"><%= User.human_attribute_name(:kop_history) %> : <%= @user.kop_history %> 年</strong>
         </div>
       </div>
@@ -34,7 +34,7 @@
     <div class="media text-muted pt-3">
       <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
         <div class="d-flex justify-content-between align-items-center w-100">
-          <!-- <strong class="text-gray-dark">Full Name</strong> -->
+          <!-- <strong class="text-gray-dark">Favorite Player</strong> -->
           <strong class="text-gray-dark"><%= User.human_attribute_name(:favorite_player) %> : <%= @user.favorite_player %></strong>
         </div>
       </div>
@@ -43,36 +43,22 @@
 
   <div class="my-3 p-3 bg-white rounded shadow-sm">
     <!-- <h6 class="border-bottom border-gray pb-2 mb-0">Recent updates</h6> -->
-    <h6 class="border-bottom border-gray pb-2 mb-0">投稿</h6>
-    <div class="media text-muted pt-3">
-      <img data-src="holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1" alt="" class="mr-2 rounded">
-      <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-        <strong class="d-block text-gray-dark">@username</strong>
-        <!-- Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. -->
-        吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。
-      </p>
-    </div>
-    <div class="media text-muted pt-3">
-      <img data-src="holder.js/32x32?theme=thumb&bg=e83e8c&fg=e83e8c&size=1" alt="" class="mr-2 rounded">
-      <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-        <strong class="d-block text-gray-dark">@username</strong>
-        <!-- Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. -->
-        吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。
-      </p>
-    </div>
-    <div class="media text-muted pt-3">
-      <img data-src="holder.js/32x32?theme=thumb&bg=6f42c1&fg=6f42c1&size=1" alt="" class="mr-2 rounded">
-      <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-        <strong class="d-block text-gray-dark">@username</strong>
-        <!-- Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. -->
-        吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。
-      </p>
-    </div>
+    <h6 class="border-bottom border-gray pb-2 mb-0"><%= Tweet.human_attribute_name(:body) %></h6>
+    <% @tweets.each do |tweet| %>
+      <div class="media text-muted pt-3">
+        <%= image_tag tweet.tweet_image.url, class: 'mr-2 rounded', alt: '' if tweet.tweet_image? %>
+        <img data-src="holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1" alt="" class="mr-2 rounded">
+        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+          <strong class="d-block text-gray-dark"><%= tweet.user.username %></strong>
+          <!-- User Tweet -->
+          <%= tweet.body %>
+        </p>
+      </div>
+    <% end %>
     <small class="d-block text-right mt-3">
       <!-- <a href="#">All updates</a> -->
-      <a href="#">すべてのアップデート</a>
+      <a href="#">すべてのツイート</a>
     </small>
   </div>
-
   
 </main>

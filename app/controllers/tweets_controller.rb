@@ -23,8 +23,8 @@ class TweetsController < ApplicationController
 
   def show
     @tweet = Tweet.find(params[:id])
-    # @comment = Comment.new
-    # @comments = @board.comments.includes(:user).order(created_at: :desc)
+    @comment = Comment.new
+    @comments = @tweet.comments.includes(:user).order(created_at: :desc)
   end
 
   def edit; end
