@@ -3,8 +3,8 @@ class TweetsController < ApplicationController
 
   def index
     @tweets = Tweet.all.includes(:user).order(created_at: :desc)
-    # @search = Board.ransack(params[:q])
-    # @boards = @search.result(distinct: true).includes(%i[user bookmarks]).order(created_at: :desc).page(params[:page])
+    # @search = Tweet.ransack(params[:q])
+    # @tweets = @search.result(distinct: true).includes(%i[user bookmarks]).order(created_at: :desc).page(params[:page])
   end
 
   def new
@@ -43,9 +43,9 @@ class TweetsController < ApplicationController
     redirect_to tweets_path, success: t('defaults.message.destroyed', item: Tweet.model_name.human)
   end
 
-  # def bookmarks
-  # @search = current_user.bookmark_boards.ransack(params[:q])
-  # @bookmark_boards = @search.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
+  #def bookmarks
+    # @search = current_user.bookmark_tweets.ransack(params[:q])
+    # @bookmark_tweets = @search.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
   # end
 
   private

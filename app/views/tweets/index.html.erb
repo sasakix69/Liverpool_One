@@ -3,11 +3,11 @@
   <%= link_to 'ツイートを投稿する', new_tweet_path, {class: 'btn btn-primary withripple' }%>
   <%= link_to '自分のツイート一覧へ', tweet_path(id: current_user.id), {class: 'btn btn-primary withripple' }%>
     <div class="my-3 p-3 bg-white rounded shadow-sm">
-      <!-- 掲示板一覧 -->
+      <!-- ツイート一覧 -->
       <% if @tweets.present? %>
         <%= render @tweets %>
       <% else %>
         <p><%= t('.no_result') %></p>
       <% end %>
     </div> 
-</main>   
+</main>
