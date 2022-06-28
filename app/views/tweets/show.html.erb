@@ -14,6 +14,9 @@
                 <%= render 'crud_menus', tweet: @tweet %>
               <% end %>
                 <%= render 'bookmark_button', tweet: @tweet %>
+                <% if @tweet.bookmarks.count != 0 %>
+                  <%= @tweet.bookmarks.count %>
+                <% end %>
               <ul class="list-inline">
                 <li class="list-inline-item">by <%= @tweet.user.username %></li>
                 <li class="list-inline-item"><%= l @tweet.created_at, format: :long %></li>

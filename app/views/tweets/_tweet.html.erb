@@ -9,6 +9,9 @@
         <%= render 'crud_menus', tweet: tweet %>  
       <% end %>
       <%= render 'bookmark_button', tweet: tweet %>
+      <% if tweet.bookmarks.count != 0 %>
+        <%= tweet.bookmarks.count %>
+      <% end %>  
   </p>
 </div>  
    
