@@ -6,6 +6,7 @@ class User < ApplicationRecord
   validates :username, presence: true
   has_many :tweets, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
 
   mount_uploader :avatar, AvatarUploader
 
