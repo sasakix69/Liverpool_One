@@ -6,10 +6,9 @@
       <i class="fas fa-calendar"></i>
       投稿日時:<%= l tweet.created_at, format: :long %>
       <% if current_user.own?(tweet) %>
-        <%= render 'crud_menus', tweet: tweet %>
-      <%# else %>
-        <%# render 'bookmark_button', tweet: tweet %>  
+        <%= render 'crud_menus', tweet: tweet %>  
       <% end %>
+      <%= render 'bookmark_button', tweet: tweet %>
   </p>
 </div>  
    
