@@ -4,6 +4,8 @@ ja:
     register: '登録'
     logout: 'ログアウト'
     tweet: 'ツイート'
+    comment: 'コメント'
+    post: '投稿'
     search_word: '検索ワード'
     profile: 'プロフィール'
     edit: '編集'
@@ -50,25 +52,10 @@ ja:
       fail: 'ツイートを作成できませんでした'
     edit:
       title: 'ツイート編集'
-    bookmarks:
-      title: 'ブックマーク一覧'
-      no_result: 'ブックマーク中の掲示板がありません'
       
   comments:
     body: 'コメント'
+    post: 'コメントを投稿'
     create:
       success: 'コメントを作成しました'
       fail: 'コメントを作成できませんでした'  
-
-  bookmarks:
-    create:
-      success: 'ブックマークしました'
-    destroy:  
-      success: 'ブックマークを外しました'
-
-  profiles:
-    show:
-      title: 'プロフィール'
-    edit:
-      title: 'プロフィール編集'
-  

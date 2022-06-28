@@ -5,6 +5,7 @@
       <%= render 'shared/error_messages', object: f.object %>
       <%= f.label :body %>
       <%= f.text_area :body, class: 'form-control mb-3', id: 'js-new-comment-body', row: 4,  placeholder: Comment.human_attribute_name(:body) %>
+      <%= f.submit t('comments.post'), class: 'btn btn-primary' %>
     <% end %>
   </div>
 </div>     
