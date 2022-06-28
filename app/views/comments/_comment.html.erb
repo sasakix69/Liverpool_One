@@ -1,10 +1,14 @@
 <!-- コメントエリア -->
 <tr id='comment-<%= comment.id %>'>
   <td style="width: 60px">
-    <%= image_tag comment.user.avatar_url, class: 'rounded-circle', size: '50x50' %>
+    <%= link_to user_path(comment.user), method: :get do %>
+      <%= image_tag comment.user.avatar_url, class: 'rounded-circle', size: '50x50' %>
+     <% end %>  
   </td>
   <td>
-    <h3 class="small"><%= comment.user.username %></h3>
+    <%= link_to user_path(comment.user), method: :get do %>
+      <h3 class="small"><%= comment.user.username %></h3>
+    <% end %>  
     <div id="js-comment-<%= comment.id %>">
       <%= simple_format(comment.body) %>
     </div>
