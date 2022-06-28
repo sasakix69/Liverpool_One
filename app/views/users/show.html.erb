@@ -45,21 +45,20 @@
     <!-- <h6 class="border-bottom border-gray pb-2 mb-0">Recent updates</h6> -->
     <h6 class="border-bottom border-gray pb-2 mb-0"><%= Tweet.human_attribute_name(:body) %></h6>
     <% @tweets.each do |tweet| %>
-    <div class="media text-muted pt-3">
-      <%= image_tag tweet.tweet_image.url, class: 'mr-2 rounded', alt: '' if tweet.tweet_image? %>
-      <img data-src="holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1" alt="" class="mr-2 rounded">
-      <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-        <strong class="d-block text-gray-dark"><%= tweet.user.username %></strong>
-        <!-- User Tweet -->
-        <%= tweet.body %>
-      </p>
-    </div>
+      <div class="media text-muted pt-3">
+        <%= image_tag tweet.tweet_image.url, class: 'mr-2 rounded', alt: '' if tweet.tweet_image? %>
+        <img data-src="holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1" alt="" class="mr-2 rounded">
+        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+          <strong class="d-block text-gray-dark"><%= tweet.user.username %></strong>
+          <!-- User Tweet -->
+          <%= tweet.body %>
+        </p>
+      </div>
     <% end %>
     <small class="d-block text-right mt-3">
       <!-- <a href="#">All updates</a> -->
       <a href="#">すべてのツイート</a>
     </small>
   </div>
-
   
 </main>
