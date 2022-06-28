@@ -24,4 +24,10 @@
       </article>
     </div>
   </div>
-</div>  
+
+  <!-- コメントフォーム -->
+  <%= render 'comments/form', { tweet: @tweet, comment: @comment } %>
+
+  <!-- コメントエリア -->
+  <%= render 'comments/comments', locals: { comments: @comments } %>
+</div>
