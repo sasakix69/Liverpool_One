@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :tweets, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
+  # throughオプションでbookmarkテーブルを経由してuserモデルとアソシエーションを作成して、bookmark_tweetsは仮のテーブル名なので、sourceオプションで参照するテーブルを指定している
+  has_many :bookmark_tweets, through: :bookmarks, source: :tweet
 
   mount_uploader :avatar, AvatarUploader
 
