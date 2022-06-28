@@ -11,6 +11,7 @@ ja:
         user: '作成者'
       comment:
         body: 'コメント'
+      bookmark: 'いいね'  
   attributes:
     id: 'ID'
     created_at: '作成日時'
