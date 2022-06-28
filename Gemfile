@@ -34,6 +34,7 @@ gem 'carrierwave'
 gem 'devise'
 gem 'devise-i18n'
 gem 'dotenv-rails'
+gem 'faker'
 gem 'fog-aws'
 gem 'kaminari'
 gem 'mini_magick'
@@ -44,7 +45,6 @@ gem 'omniauth'
 gem 'omniauth-rails_csrf_protection'
 gem 'omniauth-twitter'
 gem 'rails-i18n', '~> 6.0'
-gem 'faker'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

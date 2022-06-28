@@ -13,8 +13,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
   resources :tweets do
-    resources :comments, only: [:create, :update, :destroy], shallow: true
-  end  
+    resources :comments, only: %i[create update destroy], shallow: true
+  end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
