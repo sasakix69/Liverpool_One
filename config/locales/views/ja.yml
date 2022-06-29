@@ -66,4 +66,4 @@ ja:
       success: 'いいねしました'
     destroy:  
       fail: 'いいねを外しました'
-    no_result: 'いいねしているツイートがありません'    
+    no_result: 'いいねしているツイートがありません'  

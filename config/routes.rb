@@ -15,13 +15,13 @@ Rails.application.routes.draw do
     member do
       get :bookmarks
     end
-  end  
+  end
 
   resources :tweets do
     resources :comments, only: %i[create update destroy], shallow: true
     collection do
       get :bookmarks
-    end  
+    end
   end
   resources :bookmarks, only: %i[create destroy]
 

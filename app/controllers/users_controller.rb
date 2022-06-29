@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   def bookmarks
     bookmarks = Bookmark.where(user_id: @user.id).pluck(:tweet_id)
     @bookmark_tweets = Tweet.find(bookmarks)
-  end  
+  end
 
   private
 
