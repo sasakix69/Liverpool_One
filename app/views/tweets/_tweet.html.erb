@@ -1,6 +1,10 @@
 <div class="media text-muted pt-3">
   <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-    <%= image_tag tweet.tweet_image.url, class: 'mr-2 rounded', alt: '' if tweet.tweet_image? %>
+    <% if tweet.user.avatar? %>
+      <%= image_tag tweet.user.avatar_url, class: 'rounded-circle', size: '50x50' %>
+    <% else %>
+      <%= image_pack_tag 'default.jpg', class: 'rounded-circle', size: '50x50' %>
+    <% end %>    
       <strong class="d-block text-gray-dark"><i class="fas fa-user"></i><%= link_to tweet.user.username, user_path(tweet.user), method: :get %></strong>    
       <%= link_to tweet.body, tweet_path(tweet.id)%>
       <i class="fas fa-calendar"></i>
@@ -12,6 +16,7 @@
       <% if tweet.bookmarks.count != 0 %>
         <%= tweet.bookmarks.count %>
       <% end %>  
+      <%= image_tag tweet.tweet_image.url, class: 'mr-2 rounded', alt: '' if tweet.tweet_image? %>
   </p>
 </div>  
    
