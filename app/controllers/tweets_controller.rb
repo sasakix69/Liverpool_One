@@ -2,7 +2,7 @@ class TweetsController < ApplicationController
   before_action :set_tweet, only: %i[edit update destroy]
 
   def index
-    @tweets = Tweet.all.includes(:user).order(created_at: :desc)
+    @tweets = Tweet.all.includes(:user).order(created_at: :desc).page(params[:page]).per(15)
     # @search = Tweet.ransack(params[:q])
     # @tweets = @search.result(distinct: true).includes(%i[user bookmarks]).order(created_at: :desc).page(params[:page])
   end
