@@ -1,7 +1,8 @@
 <main role="main" class="container">
-  <h2>ツイート検索</h2>
+  <h2>ツイート一覧</h2>
   <%= link_to 'ツイートを投稿する', new_tweet_path, {class: 'btn btn-primary withripple' }%>
   <%= link_to '自分のツイート一覧へ', tweet_path(id: current_user.id), {class: 'btn btn-primary withripple' }%>
+  
     <div class="my-3 p-3 bg-white rounded shadow-sm">
       <!-- ツイート一覧 -->
       <% if @tweets.present? %>
