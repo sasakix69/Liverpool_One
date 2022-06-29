@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def bookmarks
     bookmarks = Bookmark.where(user_id: @user.id).pluck(:tweet_id)
-    @bookmark_tweets = Tweet.find(bookmarks)
+    @bookmark_tweets = current_user.bookmark_tweets.order(updated_at: :desc).page(params[:page]).per(15)
   end
 
   private
