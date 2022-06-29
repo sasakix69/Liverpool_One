@@ -1,0 +1,12 @@
+<main role="main" class="container">
+  <div class="my-3 p-3 bg-white rounded shadow-sm">
+    <!-- ツイート一覧 -->
+    <% if @bookmark_tweets.present? %>
+      <%= render @bookmark_tweets %>
+    <% else %>
+      <p><%= t('tweets.bookmarks.no_result') %></p>
+    <% end %>
+    <!-- ページネーション -->
+    <%# paginate @bookmark_tweets %>
+  </div>
+</main>

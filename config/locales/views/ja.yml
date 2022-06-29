@@ -59,3 +59,11 @@ ja:
     create:
       success: 'コメントを作成しました'
       fail: 'コメントを作成できませんでした'  
+
+  bookmarks:
+    index: 'いいね一覧'
+    create:
+      success: 'いいねしました'
+    destroy:  
+      fail: 'いいねを外しました'
+    no_result: 'いいねしているツイートがありません'  

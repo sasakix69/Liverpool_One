@@ -11,10 +11,19 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  resources :users, only: [:show]
+  resources :users, only: [:show] do
+    member do
+      get :bookmarks
+    end
+  end
+
   resources :tweets do
     resources :comments, only: %i[create update destroy], shallow: true
+    collection do
+      get :bookmarks
+    end
   end
+  resources :bookmarks, only: %i[create destroy]
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
