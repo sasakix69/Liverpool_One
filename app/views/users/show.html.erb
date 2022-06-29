@@ -65,6 +65,13 @@
             <%= image_tag tweet.tweet_image.url, class: 'mr-2 rounded', alt: '' if tweet.tweet_image? %>
             <i class="fas fa-calendar"></i>
             投稿日時:<%= l tweet.created_at, format: :long %>
+            <% if current_user.own?(tweet) %>
+              <%= render 'tweets/crud_menus', tweet: tweet %>  
+            <% end %>
+            <%= render 'shared/bookmark_button', tweet: tweet %>
+            <% if tweet.bookmarks.count != 0 %>
+              <%= tweet.bookmarks.count %>
+            <% end %>  
           </p>   
         </div>
       <% end %>
