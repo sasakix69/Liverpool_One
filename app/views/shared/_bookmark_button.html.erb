@@ -1,0 +1,5 @@
+<% if current_user.bookmark?(tweet) %>
+  <%= render 'tweets/unbookmark', { tweet: tweet } %>
+<% else %>
+  <%= render 'tweets/bookmark', { tweet: tweet } %>
+<% end %> 

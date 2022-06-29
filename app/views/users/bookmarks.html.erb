@@ -1,3 +1,4 @@
+<!-- いいね一覧 -->
 <main role="main" class="container">
 
   <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded shadow-sm">
@@ -42,31 +43,40 @@
   </div>
 
   <div class="my-3 p-3 bg-white rounded shadow-sm">
-  <!-- <h6 class="border-bottom border-gray pb-2 mb-0">Recent updates</h6> -->
-  <h6 class="border-bottom border-gray pb-2 mb-0"><%= link_to Tweet.human_attribute_name(:body), user_path(@user) %>
-    <%= Bookmark.model_name.human %>
-  </h6>
-  <% @bookmark_tweets.each do |tweet| %>
-    <div class="media text-muted pt-3">
-      <img data-src="holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1" alt="" class="mr-2 rounded">
-      <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-        <% if tweet.user.avatar? %>
-          <%= image_tag tweet.user.avatar_url, class: 'rounded-circle', size: '50x50' %>
-        <% else %>
-          <%= image_pack_tag 'default.jpg', class: 'rounded-circle', size: '50x50' %>
-        <% end %>
-        <strong class="d-block text-gray-dark"><%= tweet.user.username %></strong>
-        <!-- User Tweet -->
-        <%= tweet.body %>
-        投稿日時:<%= l tweet.created_at, format: :long %>
-        <%= image_tag tweet.tweet_image.url, class: 'mr-2 rounded', alt: '' if tweet.tweet_image? %>
-      </p>
-    </div>
-  <% end %>
-  <small class="d-block text-right mt-3">
-    <!-- <a href="#">All updates</a> -->
-    <a href="#">すべてのツイート</a>
-  </small>
-</div>
-  
+    <!-- <h6 class="border-bottom border-gray pb-2 mb-0">Recent updates</h6> -->
+    <h6 class="border-bottom border-gray pb-2 mb-0"><%= link_to Tweet.human_attribute_name(:body), user_path(@user) %>
+      <%= Bookmark.model_name.human %>
+    </h6>
+    <div class="scroll-list jscroll">
+      <% @bookmark_tweets.each do |tweet| %>
+        <div class="media text-muted pt-3">
+          <img data-src="holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1" alt="" class="mr-2 rounded">
+          <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            <%= link_to user_path(tweet.user), method: :get do %>
+              <% if tweet.user.avatar? %>
+                <%= image_tag tweet.user.avatar_url, class: 'rounded-circle', size: '50x50' %>
+              <% else %>
+                <%= image_pack_tag 'default.jpg', class: 'rounded-circle', size: '50x50' %>
+              <% end %>
+            <% end %>
+            <strong class="d-block text-gray-dark"><%= tweet.user.username %></strong>
+            <!-- User Tweet -->
+            <%= tweet.body %>
+            <%= image_tag tweet.tweet_image.url, class: 'mr-2 rounded', alt: '' if tweet.tweet_image? %>
+            <i class="fas fa-calendar"></i>
+            投稿日時:<%= l tweet.created_at, format: :long %>
+            <% if current_user.own?(tweet) %>
+              <%= render 'tweets/crud_menus', tweet: tweet %>  
+            <% end %>
+            <%= render 'shared/bookmark_button', tweet: tweet %>
+            <% if tweet.bookmarks.count != 0 %>
+              <%= tweet.bookmarks.count %>
+            <% end %>
+          </p>
+        </div>
+      <% end %>
+      <%= paginate @bookmark_tweets %>
+    </div>  
+  </div>
+
 </main>
