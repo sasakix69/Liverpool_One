@@ -11,7 +11,12 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  resources :users, only: [:show]
+  resources :users, only: [:show] do
+    member do
+      get :bookmarks
+    end
+  end  
+
   resources :tweets do
     resources :comments, only: %i[create update destroy], shallow: true
     collection do
