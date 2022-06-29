@@ -4,6 +4,7 @@ ja:
       user: 'ユーザー'
       tweet: 'ツイート'
       comment: 'コメント'
+      bookmark: 'いいね'
     attributes:
       tweet:
         body: 'ツイート'
