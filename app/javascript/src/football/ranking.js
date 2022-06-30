@@ -1,4 +1,4 @@
-$(function() {
+$(document).on('turbolinks:load', function() {
   $.ajaxSetup({
     headers : {"X-Auth-Token" : gon.football_info}
   });
