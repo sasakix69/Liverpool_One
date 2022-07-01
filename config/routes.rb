@@ -5,8 +5,6 @@ Rails.application.routes.draw do
   get 'tops/show'
   get 'football/ranking'
   get 'football/schedule'
-  get "news/data"
-  get "news/index"
 
   # controllerを指定することで、指定内のcontrollerで記述する内容を有効に出来る
   devise_for :users, controllers: {
@@ -28,6 +26,8 @@ Rails.application.routes.draw do
     end
   end
   resources :bookmarks, only: %i[create destroy]
+
+  resources :news, only: :index
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
