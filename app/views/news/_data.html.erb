@@ -1,0 +1,24 @@
+<div class="container">
+    <%= link_to news.url do %>
+      <% if news.urlToImage.present? %>
+        <%= image_tag(news.urlToImage, class: "item-img", size: '700x300') %>
+      <% else %>
+        <%= image_pack_tag("dammy-cover.png", class: "item-img", size: '700x300') %> 
+      <% end %>
+      <div class="article-body">
+        <p class="article-title-name">
+          <%= news.title.truncate(30) %>
+        </p>
+      </div>
+    <% end %>
+    <div class="tags">
+      <div class="article-body">
+        <div class="article-user">
+          <%= news.author %>
+        </div>
+      </div>
+      <div class="created-time">
+        <%= time_ago_in_words(news.publishedAt) %>前
+      </div>
+    </div>
+</div>

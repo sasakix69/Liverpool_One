@@ -1,12 +1,2 @@
-<p>ニュース</p>
-<hr>
-<div id="result">no information...</div>
-<script>
-var f = function(){
-    $.ajax({
-        type: 'GET',
-        url: '/news/data'
-    });
-};
-f();
-</script>
+<%= render partial: "data", collection: @news, as: "news" %>
+Powered by <%= link_to "https://newsapi.org" do %>　News API　<% end %>
