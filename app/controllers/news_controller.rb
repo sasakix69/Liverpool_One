@@ -1,11 +1,10 @@
 class NewsController < ApplicationController
-  def index
-  end
 
-  def data
-    uri = URI.parse('https://newsapi.org/v2/everything?q=liverpool&language=jp&sortBy=publishedAt&apiKey=e49127864c4a4fd78bea651073275fc5')
-    json = Net::HTTP.get(uri)
-    moments = JSON.parse(json)
-    @data = moments['articles'].to_json
+  def index
+    require 'news-api'
+    news = News.new(ENV['NEWS_API_KEY'])
+    @news = news.get_everything(q: 'football',
+                                      language: 'jp',
+                                      sortBy: 'publishedAt')
   end
 end
