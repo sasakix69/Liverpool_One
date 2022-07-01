@@ -1,0 +1,13 @@
+var data = <%== @data %>;
+var result = '<div class="datas">'
+data.forEach(function(e){
+    var div = '<div class="data">'
+    if (e.urlToImage != null) {
+    result += '<img src="' + e.urlToImage +'" class="image_data">';
+    }
+    result += '<a href="' + e.url +'" class="yahoo_link" target="_blank">' + e.title + '</a><br>';
+    result += '<p class="time_data">' + e.publishedAt + '</p><hr class="clear">';
+    div += '</div>'
+});
+result += '</div>'
+$('#result').html(result);
