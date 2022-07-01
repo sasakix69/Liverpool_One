@@ -19,8 +19,10 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-import './jquery.jscroll.min.js'
-import './comment/edit_comment'
+import '../src/football/schedule'
+import '../src/football/ranking'
+import '../src/scroll/jquery.jscroll.min.js'
+import '../src/comment/edit_comment'
 import '@fortawesome/fontawesome-free/js/all'
 import '../stylesheets/application'
 
