@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get 'tops/show'
   get 'football/ranking'
   get 'football/schedule'
+  get "news/data"
+  get "news/index"
 
   # controllerを指定することで、指定内のcontrollerで記述する内容を有効に出来る
   devise_for :users, controllers: {
