@@ -44,7 +44,7 @@ ja:
       no_result: 'ツイートがありません。'
     new:
       title: 'ツイート作成'
-      register_tweet: '登録する'
+      register_tweet: 'ツイートする'
     show:
       title: 'ツイート詳細'  
     create:
