@@ -1,2 +1,6 @@
-<%= render partial: "data", collection: @news, as: "news" %>
-Powered by <%= link_to "https://newsapi.org" do %>　News API　<% end %>
+<main role="main" class="container">
+  <div class="my-3 p-3 bg-white rounded shadow-sm">
+      <%= render partial: 'news', collection: @news, as: 'news' %>
+    Powered by <%= link_to "https://newsapi.org" do %>　News API　<% end %>
+  </div>
+</main>  
