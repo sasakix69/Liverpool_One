@@ -2,9 +2,9 @@
   <p class="media-body pb-3 mb-0 small lh-125">
     <%= link_to news.url do %>
       <% if news.urlToImage.present? %>
-        <%= image_tag news.urlToImage, size: '500x300' %>
+        <%= image_tag news.urlToImage, class: 'img' %>
       <% else %>
-        <%= image_pack_tag "dammy-cover.png", size: '500x300' %>
+        <%= image_pack_tag "dammy-cover.png", class: 'img' %>
       <% end %>
       <p><%= truncate(news.title, omision: "...", length: 30) %></p>
       <p class="btn btn-secondary">詳しく見る &raquo;</p>
