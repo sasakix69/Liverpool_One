@@ -15,7 +15,7 @@ class TweetsController < ApplicationController
   def create
     @tweet = current_user.tweets.build(tweet_params)
     if @tweet.save
-      redirect_to tweets_path, success: t('.success')
+      redirect_to tweets_path, notice: t('.success')
     else
       flash.now[:danger] = t('.fail')
       render :new
