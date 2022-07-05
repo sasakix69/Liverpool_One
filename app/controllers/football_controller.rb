@@ -1,4 +1,5 @@
 class FootballController < ApplicationController
+  before_action :authenticate_user!
   before_action :key, only: %i[ranking schedule]
 
   def ranking

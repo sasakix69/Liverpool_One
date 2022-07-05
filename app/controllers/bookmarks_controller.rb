@@ -1,4 +1,5 @@
 class BookmarksController < ApplicationController
+  before_action :authenticate_user!
   # ブックマークボタンをクリックされたツイートを取得して、Userモデルのインスタンスメソッドとして作成したbookmarkメソッドの引数に渡してブックマークする
   def create
     @tweet = Tweet.find(params[:tweet_id])
