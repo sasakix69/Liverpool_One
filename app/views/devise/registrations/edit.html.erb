@@ -54,7 +54,7 @@
 <hr class="devise-link my-5">
   <div class="form-group">
     <%# リンク先URLはツイートページへのパス %>
-    <%= link_to "トップページへ", tops_show_path, class: 'btn btn-info w-100 mb-4' %>
+    <%= link_to t('.back'), user_path(id: current_user.id), class: 'btn btn-info w-100 mb-4' %>
   </div>
 
   <div class="form-group">
