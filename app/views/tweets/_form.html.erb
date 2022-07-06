@@ -13,10 +13,10 @@
           <%= f.hidden_field :tweet_image_cache %>
         </div>
         <div class='mt-3 mb-3'>
-          <%= image_tag tweet.tweet_image.url, id: 'preview' if tweet.tweet_image? %>
+          <%= image_tag tweet.tweet_image.url, class: 'tweet-img', id: 'preview' if tweet.tweet_image? %>
         </div>
 
-        <%= f.submit class: 'btn btn-primary' %>  
+        <%= f.submit t('tweets.new.register_tweet'), class: 'btn btn-primary' %>  
       <% end %>
     </div>
   </div>

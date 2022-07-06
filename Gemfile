@@ -36,17 +36,17 @@ gem 'devise-i18n'
 gem 'dotenv-rails'
 gem 'faker'
 gem 'fog-aws'
+gem 'gon'
 gem 'kaminari'
 gem 'mini_magick'
 gem 'net-imap'
 gem 'net-pop'
 gem 'net-smtp'
+gem 'news-api'
 gem 'omniauth'
 gem 'omniauth-rails_csrf_protection'
 gem 'omniauth-twitter'
 gem 'rails-i18n', '~> 6.0'
-gem 'gon'
-gem "news-api"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

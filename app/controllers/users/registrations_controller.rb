@@ -42,12 +42,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # アカウント登録後のリダイレクト先
   def after_inactive_sign_up_path_for(_resource)
-    tops_show_path
+    tweets_path
   end
 
   # アカウント編集後のリダイレクト先
   def after_update_path_for(_resource)
     user_path(id: current_user.id)
+  end
+
+  # パスワード無しでユーザープロフィールを更新
+  def update_resource(resource, params)
+    resource.update_without_password(params)
   end
 
   # If you have extra params to permit, append them to the sanitizer.
@@ -58,15 +63,5 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
-  # end
-
-  # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
-
-  # The path used after sign up for inactive accounts.
-  # def after_inactive_sign_up_path_for(resource)
-  #   super(resource)
   # end
 end

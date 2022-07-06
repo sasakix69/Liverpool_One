@@ -9,7 +9,7 @@
     <% end %>  
       <strong class="d-block text-gray-dark"><%= tweet.user.username %></strong>    
       <%= link_to tweet.body, tweet_path(tweet.id)%>
-      <%= image_tag tweet.tweet_image.url, class: 'mr-2 rounded', alt: '' if tweet.tweet_image? %>
+      <%= image_tag tweet.tweet_image.url, class: 'tweet-img', alt: '' if tweet.tweet_image? %>
       <i class="fas fa-calendar"></i>
       投稿日時:<%= l tweet.created_at, format: :long %>
       <% if current_user.own?(tweet) %>

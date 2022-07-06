@@ -36,22 +36,15 @@
 
   <div class="form-group">
     <%= f.label :password %>
-    <%= f.password_field :password, autocomplete: 'new-password', class: 'form-control' %>
+    <%= f.password_field :password, autocomplete: 'new-password', class: 'form-control', placeholder: '新しいパスワード' %>
 
     <small class="form-text text-muted"><%= t('.leave_blank_if_you_don_t_want_to_change_it') %></small>
   </div>
 
   <div class="form-group">
     <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, autocomplete: 'new-password', class: 'form-control'  %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :current_password %>
-    <%= f.password_field :current_password, autocomplete: 'current-password', class: 'form-control' %>
-
-    <small class="form-text text-muted"><%= t('.we_need_your_current_password_to_confirm_your_changes') %></small>
-  </div>
+    <%= f.password_field :password_confirmation, autocomplete: 'new-password', class: 'form-control', placeholder: '新しいパスワード確認用'  %>
+  </div></br>
 
   <div class="form-group">
     <%= f.submit t('.update'), class: 'btn btn-primary w-100' %>
@@ -60,8 +53,8 @@
 
 <hr class="devise-link my-5">
   <div class="form-group">
-    <%# リンク先URLは掲示板ページへのパス %>
-    <%= link_to "トップページへ", tops_show_path, class: 'btn btn-info w-100 mb-4' %>
+    <%# リンク先URLはツイートページへのパス %>
+    <%= link_to t('.back'), user_path(id: current_user.id), class: 'btn btn-info w-100 mb-4' %>
   </div>
 
   <div class="form-group">
