@@ -9,9 +9,9 @@
         </div>
         <div class="form-group">
           <%= f.label :tweet_image %>
-          <%= f.file_field :tweet_image, onchange: 'previewFileWithId(preview)', class: 'form-control mb-3', accept: 'image/*' %>
+          <%= f.file_field :tweet_image, id: :preview, class: 'form-control mb-3', accept: 'image/*' %>
           <%= f.hidden_field :tweet_image_cache %>
-          <%= image_tag tweet.tweet_image.url, class: 'tweet-img', id: 'preview' %>
+          <%= image_tag tweet.tweet_image.url, class: 'tweet-img', id: 'img_prev' %>
         </div>
 
         <%= f.submit t('tweets.new.register_tweet'), class: 'btn btn-primary' %>  
