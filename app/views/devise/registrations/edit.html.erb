@@ -6,11 +6,11 @@
   <div class="form-group">
     <%= f.label :avatar %>
     <% if @user.avatar? %>
-      <%= image_tag @user.avatar.thumb.url, size: "200", class: 'user-icon' %>
+      <%= image_tag @user.avatar.thumb.url, size: "200", class: 'user-icon', id: 'img_prev' %>
     <% else %>
-      <%= image_pack_tag 'default.jpg', alt: "user-icon", size: "200", class: "user-icon" %>
+      <%= image_pack_tag 'default.jpg', alt: "user-icon", size: "200", class: "user-icon", id: 'img_prev' %>
     <% end %>
-    <%= f.file_field :avatar, class: 'form-control' %>
+    <%= f.file_field :avatar, class: 'form-control', id: :preview, accept: 'image/*' %>
     <%= f.hidden_field :avatar_cache, class: 'form-control' %>
   </div>
 
