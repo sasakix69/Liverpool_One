@@ -13,7 +13,7 @@
   puts "\"#{user.username}\" has created!"
 end
 
-40.times do |n|
+40.times do |_n|
   Tweet.create(
     user: User.offset(rand(User.count)).first,
     body: Faker::JapaneseMedia::StudioGhibli.quote
