@@ -17,7 +17,7 @@ class TweetsController < ApplicationController
     if @tweet.save
       redirect_to tweets_path, notice: t('.success')
     else
-      flash.now[:danger] = t('.fail')
+      flash.now[:error] = t('.fail')
       render :new
     end
   end
@@ -34,7 +34,7 @@ class TweetsController < ApplicationController
     if @tweet.update(tweet_params)
       redirect_to tweet_path(@tweet.id), success: t('defaults.message.updated', item: Tweet.model_name.human)
     else
-      flash.now[:danger] = t('defaults.message.not_updated', item: Tweet.model_name.human)
+      flash.now[:error] = t('defaults.message.not_updated', item: Tweet.model_name.human)
       render :edit
     end
   end

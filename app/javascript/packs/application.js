@@ -19,6 +19,7 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
+import '../src/preview'
 import '../src/close_flash'
 import '../src/football/schedule'
 import '../src/football/ranking'
