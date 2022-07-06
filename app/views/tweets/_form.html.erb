@@ -11,9 +11,7 @@
           <%= f.label :tweet_image %>
           <%= f.file_field :tweet_image, onchange: 'previewFileWithId(preview)', class: 'form-control mb-3', accept: 'image/*' %>
           <%= f.hidden_field :tweet_image_cache %>
-        </div>
-        <div class='mt-3 mb-3'>
-          <%= image_tag tweet.tweet_image.url, class: 'tweet-img', id: 'preview' if tweet.tweet_image? %>
+          <%= image_tag tweet.tweet_image.url, class: 'tweet-img', id: 'preview' %>
         </div>
 
         <%= f.submit t('tweets.new.register_tweet'), class: 'btn btn-primary' %>  
