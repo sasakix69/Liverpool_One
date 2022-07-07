@@ -33,11 +33,10 @@
             <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
               <li><%= link_to 'マイページ', user_path(id: current_user.id), class: 'dropdown-item' %></li>
               <li><%= link_to 'プロフィール変更', edit_user_registration_path, class: 'dropdown-item' %></li>
-              <li><%= link_to 'ログアウト', destroy_user_session_path, class: 'dropdown-item', method: :delete %></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item" href="#">その他</a></li>
+              <li><%= link_to 'ログアウト', destroy_user_session_path, class: 'dropdown-item', method: :delete %></li>
             </ul>
           </li>
         </ul>
