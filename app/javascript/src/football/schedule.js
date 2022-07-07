@@ -2,7 +2,7 @@ $(document).on('turbolinks:load', function() {
   $.ajaxSetup({
     headers : {"X-Auth-Token" : gon.football_info}
   });
-  $.getJSON("https://api.football-data.org/v2/competitions/PL/matches?status=SCHEDULED", function(data_PL) {
+  $.getJSON("https://api.football-data.org/v2/teams/64/matches?status=SCHEDULED", function(data_PL) {
     //JSON取得後の処理
     game_list = data_PL.matches;
     games_num = data_PL.count;
