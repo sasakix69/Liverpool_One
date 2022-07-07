@@ -33,10 +33,13 @@ class AvatarUploader < CarrierWave::Uploader::Base
   #   # do something
   # end
 
-  # Create different versions of your uploaded files:
   # .avatar.thumb.urlとして使える
   version :thumb do
     process resize_to_fit: [200, 200]
+  end
+
+  version :dropdown do
+    process resize_to_fit: [50, 50]
   end
 
   # Add an allowlist of extensions which are allowed to be uploaded.

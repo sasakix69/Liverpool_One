@@ -1,3 +1,10 @@
 .user-icon {
   border-radius: 100px;
 }
+
+.dropdown-user-icon {
+  border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+  width: 35px;  /* 縦横を同じ値にする */
+  height: 35px;  /* 縦横を同じ値にする */
+  object-fit: cover; /* 縦横比固定したまま上2つの縦横の範囲内に収まるように配置する */
+}
