@@ -42,7 +42,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # アカウント登録後のリダイレクト先
   def after_inactive_sign_up_path_for(_resource)
-    tweets_path
+    tops_show_path
   end
 
   # アカウント編集後のリダイレクト先
