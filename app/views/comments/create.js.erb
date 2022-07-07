@@ -4,4 +4,5 @@ $("#error_messages").remove()
 <% else %>
   $("#js-table-comment").prepend("<%= j(render('comments/comment', comment: @comment)) %>")
   $("#js-new-comment-body").val('')
+  $('#flash-message').html("<%= j(render 'layouts/flash_messages') %>");
 <% end %>
