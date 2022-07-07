@@ -2,6 +2,7 @@
 
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_action :authenticate_user!, if: :use_auth?
   before_action :configure_permitted_parameters, if: :devise_controller?
   add_flash_types :success, :info, :warning, :danger
 
@@ -10,6 +11,12 @@ class ApplicationController < ActionController::Base
   def sign_in_required
     redirect_to new_user_session_url unless user_signed_in?
   end
+
+  def use_auth?
+    unless controller_name == 'tops'
+      true
+    end
+  end  
 
   protected
 
