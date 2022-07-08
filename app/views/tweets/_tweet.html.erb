@@ -1,15 +1,11 @@
 <div class="media text-muted pt-3 border-bottom border-grey">
   <p class="media-body pb-3 mb-0 small lh-125">
-    <%= link_to user_path(tweet.user), method: :get do %>
+    <%= link_to user_path(tweet.user), class: 'user-name', method: :get do %>
       <% if tweet.user.avatar? %>
         <%= image_tag tweet.user.avatar_url, class: 'rounded-circle', size: '50x50' %>
       <% else %>
         <%= image_pack_tag 'default.jpg', class: 'rounded-circle', size: '50x50' %>
       <% end %>
-    <% end %>  
-      <strong class="d-block text-gray-dark"><%= tweet.user.username %></strong>    
-      <p><%= link_to tweet.body, tweet_path(tweet.id)%></p>
-      <p><%= image_tag tweet.tweet_image.url, class: 'tweet-img', alt: '' if tweet.tweet_image? %></p>
         <i class="fas fa-calendar"></i>
         投稿日時:<%= l tweet.created_at, format: :long %>
       <td class="action">
