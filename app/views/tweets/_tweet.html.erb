@@ -6,6 +6,12 @@
       <% else %>
         <%= image_pack_tag 'default.jpg', class: 'rounded-circle', size: '50x50' %>
       <% end %>
+      <strong><%= tweet.user.username %></strong>
+    <% end %>
+      <%= link_to tweet_path(tweet.id), class: 'tweet-content', method: :get do %>
+        <p class="text-black"><%= tweet.body %></p>
+        <p><%= image_tag tweet.tweet_image.url, class: 'tweet-img', alt: '' if tweet.tweet_image? %></p>
+      <% end %>  
         <i class="fas fa-calendar"></i>
         投稿日時:<%= l tweet.created_at, format: :long %>
       <td class="action">
