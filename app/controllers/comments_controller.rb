@@ -1,9 +1,15 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!
+  
 
   def create
     @comment = current_user.comments.build(comment_params)
-    @comment.save
+    respond_to do |format|
+      if @comment.save
+        format.js { flash.now[:notice] = t('.success') }
+      else
+        format.js { flash.now[:error] = t('.fail') }
+      end
+    end  
   end
 
   def update
