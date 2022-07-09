@@ -1,6 +1,4 @@
 class BookmarksController < ApplicationController
-  
-
   # ブックマークボタンをクリックされたツイートを取得して、Userモデルのインスタンスメソッドとして作成したbookmarkメソッドの引数に渡してブックマークする
   def create
     @tweet = Tweet.find(params[:tweet_id])

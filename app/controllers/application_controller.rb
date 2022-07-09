@@ -13,10 +13,8 @@ class ApplicationController < ActionController::Base
   end
 
   def use_auth?
-    unless controller_name == 'tops'
-      true
-    end
-  end  
+    true unless controller_name == 'tops'
+  end
 
   protected
 
