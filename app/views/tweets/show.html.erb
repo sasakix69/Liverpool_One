@@ -19,7 +19,10 @@
                 <% end %>
               <ul class="list-inline">
                 <li class="list-inline-item user-name">by <%= @tweet.user.username %></li>
-                <li class="list-inline-item calender"><%= l @tweet.created_at, format: :long %></li>
+                <li class="list-inline-item calender">
+                  <i class="fas fa-calendar"></i>
+                  投稿日時:<%= l @tweet.created_at, format: :long %>
+                </li>
               </ul>
             </div>
           </div>
