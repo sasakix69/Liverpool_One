@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     confirmations: 'users/confirmations'
   }
 
-  resources :users, only: [:show] do
+  resources :users, only: %i[show] do
     member do
       get :bookmarks
     end
@@ -29,5 +29,5 @@ Rails.application.routes.draw do
   end
   resources :bookmarks, only: %i[create destroy]
 
-  resources :news, only: :index
+  resources :news, only: %i[index]
 end
