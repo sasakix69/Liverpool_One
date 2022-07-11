@@ -11,6 +11,15 @@ class Ability
     #   return unless user.admin?
     #   can :manage, :all
     #
+
+    # ログインしているかつadminカラムがtrueの場合
+    if user && user.admin?
+      # rails_adminへのアクセスを許可
+      can :access, :rails_admin
+      # 全ての機能を使えるように設定
+      can :manage, :all
+    end
+    
     # The first argument to `can` is the action you are giving the user
     # permission to do.
     # If you pass :manage it will apply to every action. Other common actions
