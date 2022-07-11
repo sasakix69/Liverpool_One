@@ -19,7 +19,7 @@ class Ability
       # 全ての機能を使えるように設定
       can :manage, :all
     end
-    
+
     # The first argument to `can` is the action you are giving the user
     # permission to do.
     # If you pass :manage it will apply to every action. Other common actions
