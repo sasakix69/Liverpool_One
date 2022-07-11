@@ -18,8 +18,8 @@
                   <%= @tweet.bookmarks.count %>
                 <% end %>
               <ul class="list-inline">
-                <li class="list-inline-item">by <%= @tweet.user.username %></li>
-                <li class="list-inline-item"><%= l @tweet.created_at, format: :long %></li>
+                <li class="list-inline-item user-name">by <%= @tweet.user.username %></li>
+                <li class="list-inline-item calender"><%= l @tweet.created_at, format: :long %></li>
               </ul>
             </div>
           </div>
