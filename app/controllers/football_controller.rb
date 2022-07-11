@@ -1,5 +1,4 @@
 class FootballController < ApplicationController
-  
   before_action :key, only: %i[ranking schedule]
 
   def ranking; end

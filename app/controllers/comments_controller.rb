@@ -1,6 +1,4 @@
 class CommentsController < ApplicationController
-  
-
   def create
     @comment = current_user.comments.build(comment_params)
     respond_to do |format|
@@ -9,7 +7,7 @@ class CommentsController < ApplicationController
       else
         format.js { flash.now[:error] = t('.fail') }
       end
-    end  
+    end
   end
 
   def update

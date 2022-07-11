@@ -1,5 +1,4 @@
 class TweetsController < ApplicationController
-  
   before_action :set_tweet, only: %i[edit update destroy]
 
   def index

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'tops#index'
   get 'tops/show'
   get 'football/ranking'
@@ -14,7 +15,7 @@ Rails.application.routes.draw do
     confirmations: 'users/confirmations'
   }
 
-  resources :users, only: [:show] do
+  resources :users, only: %i[show] do
     member do
       get :bookmarks
     end
@@ -28,7 +29,5 @@ Rails.application.routes.draw do
   end
   resources :bookmarks, only: %i[create destroy]
 
-  resources :news, only: :index
-
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :news, only: %i[index]
 end

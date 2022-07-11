@@ -40,6 +40,10 @@
               <li>
                 <hr class="dropdown-divider">
               </li>
+              <!--ログインしてるユーザーが管理者の場合のみ-->
+              <% if current_user.try(:admin?) %>
+                <li><%= link_to '管理者ログイン', rails_admin_path, class: 'dropdown-item' %></li>
+              <% end %>
               <li><%= link_to 'ログアウト', destroy_user_session_path, class: 'dropdown-item', method: :delete %></li>
             </ul>
           </li>

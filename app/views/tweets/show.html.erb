@@ -7,6 +7,7 @@
         <div class="card-body">
           <div class='row'>
             <div class='col-md-3'>
+              <p><%= simple_format(@tweet.body) %></p>
               <%= image_tag @tweet.tweet_image.url, class: 'card-img-top img-fluid' if @tweet.tweet_image? %> 
             </div>
             <div class='col-md-9'>
@@ -18,12 +19,14 @@
                   <%= @tweet.bookmarks.count %>
                 <% end %>
               <ul class="list-inline">
-                <li class="list-inline-item">by <%= @tweet.user.username %></li>
-                <li class="list-inline-item"><%= l @tweet.created_at, format: :long %></li>
+                <li class="list-inline-item user-name">by <%= @tweet.user.username %></li>
+                <li class="list-inline-item calender">
+                  <i class="fas fa-calendar"></i>
+                  投稿日時:<%= l @tweet.created_at, format: :long %>
+                </li>
               </ul>
             </div>
           </div>
-          <p><%= simple_format(@tweet.body) %></p>
         </div>
       </article>
     </div>
