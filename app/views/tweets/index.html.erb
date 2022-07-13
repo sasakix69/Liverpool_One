@@ -1,6 +1,8 @@
 <main role="main" class="container">
-  <h2>ツイート一覧</h2>
-  <%= link_to 'ツイートを投稿する', new_tweet_path, {class: 'btn btn-primary withripple' }%>
+  <div class="text-center">
+    <h2>ツイート一覧</h2>
+    <%= link_to 'ツイートを投稿する', new_tweet_path, {class: 'btn btn-primary' }%>
+  </div>  
   <div class="scroll-list jscroll">
     <div class="my-3 p-3 bg-white rounded shadow-sm">
       <!-- ツイート一覧 -->

@@ -31,10 +31,9 @@
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#portfolio">Moment</a></li>
                         <li class="nav-item"><%= link_to 'サインアップ', new_user_registration_path, class: 'nav-link' %></li>
                         <li class="nav-item"><%= link_to 'ログイン', new_user_session_path, class: 'nav-link' %></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -46,7 +45,7 @@
             <div class="container px-4 px-lg-5 h-100">
                 <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-8 align-self-end">
-                        <h1 class="text-white font-weight-bold">You'll Never Walk Alone</h1>
+                        <h1 class="text-white font-weight-bold">You'll Never Walk Alone</h1>'
                         <hr class="divider" />
                     </div>
                     <div class="col-lg-8 align-self-baseline">
@@ -57,7 +56,7 @@
             </div>
         </header>
         <!-- About-->
-        <section class="page-section bg-primary" id="about">
+        <section class="page-section liverpool" id="about">
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-lg-8 text-center">
@@ -77,90 +76,97 @@
                 <div class="row gx-4 gx-lg-5">
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
-                            <div class="mb-2"><i class="bi-gem fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2">掲示板</h3>
-                            <p class="text-muted mb-0">Our themes are updated regularly to keep them bug free!</p>
+                            <div class="mb-2"><i class="bi bi-twitter fs-1 service-icon"></i></div>
+                            <h3 class="h4 mb-2">ツイート</h3>
+                            <p class="text-muted mb-0">リバプールについて様々な事をツイートしよう！</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
-                            <div class="mb-2"><i class="bi-laptop fs-1 text-primary"></i></div>
+                            <div class="mb-2"><i class="bi bi-newspaper fs-1 service-icon"></i></div>
                             <h3 class="h4 mb-2">ニュース</h3>
-                            <p class="text-muted mb-0">All dependencies are kept current to keep things fresh.</p>
+                            <p class="text-muted mb-0">世界中のサッカーニュースが見られます</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
-                            <div class="mb-2"><i class="bi-globe fs-1 text-primary"></i></div>
+                            <div class="mb-2"><i class="bi-globe fs-1 service-icon"></i></div>
                             <h3 class="h4 mb-2">試合日程</h3>
-                            <p class="text-muted mb-0">You can use this design as is, or you can make changes!</p>
+                            <p class="text-muted mb-0">リバプールの順位表、試合日程をリアルタイムで見られます</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
-                            <div class="mb-2"><i class="bi-heart fs-1 text-primary"></i></div>
+                            <div class="mb-2"><i class="bi-heart fs-1 service-icon"></i></div>
                             <h3 class="h4 mb-2">フォロー機能</h3>
-                            <p class="text-muted mb-0">Is it really open source if it's not made with love?</p>
+                            <p class="text-muted mb-0">お気に入りのツイートに「いいね！」しよう！</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Portfolio-->
+        <!-- Moment-->
         <div id="portfolio">
-            <div class="container-fluid p-0">
+            <div class="container-fluid px-0 pt-5 liverpool">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-lg-8 text-center">
+                        <h2 class="text-white mt-0">Moment</h2>
+                        <hr class="divider divider-light" />
+                        <p class="text-white-75 mb-4">開発者のお気に入りシーン</p>
+                    </div>
+                </div>
                 <div class="row g-0">
                     <div class="col-lg-4 col-sm-6">
-                        <%= link_to asset_pack_path('media/images/portfolio/fullsize/1.jpg'), class: 'portfolio-box', title: 'Project Name' do %>
-                            <%= image_pack_tag 'portfolio/thumbnails/1.jpg', class: 'img-fluid', alt: '...' %>
+                        <%= link_to asset_pack_path('media/images/portfolio/fullsize/gerrard.jpg'), class: 'portfolio-box', title: 'Steavie G 🔥 トーレスとのコンビが最高でした' do %>
+                            <%= image_pack_tag 'portfolio/thumbnails/gerrard.jpg', class: 'portfolio-img', alt: '...' %>
                             <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Category</div>
-                                <div class="project-name">Project Name</div>
+                                <div class="project-category text-white-50">アイドル</div>
+                                <div class="project-name">Steavie G 🔥 トーレスとのコンビが最高でした</div>
                             </div>
                         <% end %>
                     </div>
                     <div class="col-lg-4 col-sm-6">
-                        <%= link_to asset_pack_path('media/images/portfolio/fullsize/2.jpg'), class: 'portfolio-box', title: 'Project Name' do %>
-                            <%= image_pack_tag 'portfolio/thumbnails/2.jpg', class: 'img-fluid', alt: '...' %>
+                        <%= link_to asset_pack_path('media/images/portfolio/fullsize/hendo.gerrard.jpg'), class: 'portfolio-box', title: '歴史の移り変わり' do %>
+                            <%= image_pack_tag 'portfolio/thumbnails/hendo.gerrard.jpg', class: 'portfolio-img', alt: '...' %>
                             <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Category</div>
-                                <div class="project-name">Project Name</div>
+                                <div class="project-category text-white-50">世代交代</div>
+                                <div class="project-name">歴史の移り変わり©️</div>
                             </div>
                         <% end %>
                     </div>
                     <div class="col-lg-4 col-sm-6">
-                        <%= link_to asset_pack_path('media/images/portfolio/fullsize/3.jpg'), class: 'portfolio-box', title: 'Project Name' do %>
-                            <%= image_pack_tag 'portfolio/thumbnails/3.jpg', class: 'img-fluid', alt: '...' %>
+                        <%= link_to asset_pack_path('media/images/portfolio/fullsize/1.jpg'), class: 'portfolio-box', title: '針の穴を通す右足' do %>
+                            <%= image_pack_tag 'portfolio/thumbnails/1.jpg', class: 'portfolio-img', alt: '...' %>
                             <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Category</div>
-                                <div class="project-name">Project Name</div>
+                                <div class="project-category text-white-50">トレント・アレクサンダー＝アーノルド</div>
+                                <div class="project-name">針の穴を通す右足🦵</div>
                             </div>
                         <% end %>
                     </div>
                     <div class="col-lg-4 col-sm-6">
-                        <%= link_to asset_pack_path('media/images/portfolio/fullsize/4.jpg'), class: 'portfolio-box', title: 'Project Name' do %>
-                            <%= image_pack_tag 'portfolio/thumbnails/4.jpg', class: 'img-fluid', alt: '...' %>
+                        <%= link_to asset_pack_path('media/images/portfolio/fullsize/4.jpg'), class: 'portfolio-box', title: '20-21シーズン、チームを3位に導く劇的決勝弾' do %>
+                            <%= image_pack_tag 'portfolio/thumbnails/4.jpg', class: 'portfolio-img', alt: '...' %>
                             <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Category</div>
-                                <div class="project-name">Project Name</div>
+                                <div class="project-category text-white-50">アリソン</div>
+                                <div class="project-name">20-21シーズン、チームを3位に導く劇的決勝弾⚽️</div>
                             </div>
                         <% end %>
                     </div>
                     <div class="col-lg-4 col-sm-6">
-                        <%= link_to asset_pack_path('media/images/portfolio/fullsize/5.jpg'), class: 'portfolio-box', title: 'Project Name' do %>
-                            <%= image_pack_tag 'portfolio/thumbnails/5.jpg', class: 'img-fluid', alt: '...' %>
+                        <%= link_to asset_pack_path('media/images/portfolio/fullsize/5.jpg'), class: 'portfolio-box', title: 'ヘンダーソン、嵐の果てのCL優勝' do %>
+                            <%= image_pack_tag 'portfolio/thumbnails/5.jpg', class: 'portfolio-img', alt: '...' %>
                             <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Category</div>
-                                <div class="project-name">Project Name</div>
+                                <div class="project-category text-white-50">ヘンダーソン</div>
+                                <div class="project-name">ヘンダーソン、嵐の果てのCL優勝🏆</div>
                             </div>
                         <% end %>
                     </div>
                     <div class="col-lg-4 col-sm-6">
-                        <%= link_to asset_pack_path('media/images/portfolio/fullsize/6.jpg'), class: 'portfolio-box', title: 'Project Name' do %>
-                            <%= image_pack_tag 'portfolio/thumbnails/6.jpg', class: 'img-fluid', alt: '...' %>
+                        <%= link_to asset_pack_path('media/images/portfolio/fullsize/6.jpg'), class: 'portfolio-box', title: '要塞「アンフィールド」' do %>
+                            <%= image_pack_tag 'portfolio/thumbnails/6.jpg', class: 'portfolio-img', alt: '...' %>
                             <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Category</div>
-                                <div class="project-name">Project Name</div>
+                                <div class="project-category text-white-50">アンフィールド</div>
+                                <div class="project-name">要塞「アンフィールド」🏟</div>
                             </div>
                         <% end %>
                     </div>
@@ -174,87 +180,14 @@
                 <%= link_to 'ログイン', new_user_session_path, class: 'btn btn-light btn-xl' %>
             </div>
         </section>
-        <!-- Contact-->
-        <section class="page-section" id="contact">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-lg-8 col-xl-6 text-center">
-                        <h2 class="mt-0">お問い合わせ</h2>
-                        <hr class="divider" />
-                        <p class="text-muted mb-5">「こんな機能が欲しい」や「ここが使いづらい」などなど、ございましたら是非メッセージをください！</p>
-                    </div>
-                </div>
-                <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
-                    <div class="col-lg-6">
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- * * SB Forms Contact Form * *-->
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- This form is pre-integrated with SB Forms.-->
-                        <!-- To make this form functional, sign up at-->
-                        <!-- https://startbootstrap.com/solution/contact-forms-->
-                        <!-- to get an API token!-->
-                        <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-                            <!-- Name input-->
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
-                                <label for="name">氏名（ニックネームでも可）</label>
-                                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
-                            </div>
-                            <!-- Email address input-->
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
-                                <label for="email">Email</label>
-                                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                                <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
-                            </div>
-                            <!-- Phone number input-->
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
-                                <label for="phone">Phone number</label>
-                                <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
-                            </div>
-                            <!-- Message input-->
-                            <div class="form-floating mb-3">
-                                <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
-                                <label for="message">メッセージ</label>
-                                <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
-                            </div>
-                            <!-- Submit success message-->
-                            <!---->
-                            <!-- This is what your users will see when the form-->
-                            <!-- has successfully submitted-->
-                            <div class="d-none" id="submitSuccessMessage">
-                                <div class="text-center mb-3">
-                                    <div class="fw-bolder">Form submission successful!</div>
-                                    To activate this form, sign up at
-                                    <br />
-                                    <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                                </div>
-                            </div>
-                            <!-- Submit error message-->
-                            <!---->
-                            <!-- This is what your users will see when there is-->
-                            <!-- an error submitting the form-->
-                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                            <!-- Submit Button-->
-                            <div class="d-grid"><button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Submit</button></div>
-                        </form>
-                    </div>
-                </div>
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-lg-4 text-center mb-5 mb-lg-0">
-                        <i class="bi-phone fs-2 mb-3 text-muted"></i>
-                        <div>+1 (555) 123-4567</div>
-                    </div>
-                </div>
-            </div>
-        </section>
         <!-- Footer-->
-        <footer class="bg-light py-5">
+        <footer class="liverpool py-5">
             <div class="container px-4 px-lg-5">
-                <div class="small text-center text-muted">Copyright &copy; 2022 - Liverpool One</div>
-                <div class="small text-center text-muted">利用規約</div>
-                <div class="small text-center text-muted">プライバシーポリシー</div>
+                <div class="small text-center text-white">Copyright &copy; 2022 - Liverpool One</div>
+                <div class="row">
+                    <div class="col-6 small text-white">利用規約</div>
+                    <div class="col-6 small text-white" style="text-align:right">プライバシーポリシー</div>
+                </div>
             </div>
         </footer>
         <!-- Bootstrap core JS-->
