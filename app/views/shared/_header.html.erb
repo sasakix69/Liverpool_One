@@ -11,21 +11,6 @@
       </div>
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">ホーム</a>
-          </li>
-          <li class="nav-item">
-            <%= link_to 'ツイート', tweets_path ,class: 'nav-link active' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to 'ニュース', news_index_path, class: 'nav-link active' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to '順位表', football_ranking_path, class: 'nav-link active' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to '試合日程', football_schedule_path, class: 'nav-link active' %>
-          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <% if current_user.avatar.present? %>
@@ -47,11 +32,22 @@
               <li><%= link_to 'ログアウト', destroy_user_session_path, class: 'dropdown-item', method: :delete %></li>
             </ul>
           </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">ホーム</a>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'ツイート', tweets_path ,class: 'nav-link active' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'ニュース', news_index_path, class: 'nav-link active' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to '順位表', football_ranking_path, class: 'nav-link active' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to '試合日程', football_schedule_path, class: 'nav-link active' %>
+          </li>
         </ul>
-        <form class="d-flex" role="search">
-          <input type="search" class="form-control me-2" placeholder="検索" aria-label="検索">
-          <button class="btn btn-outline-success flex-shrink-0" type="submit">検索</button>
-        </form>
       </div>
     </div>
   </div>
