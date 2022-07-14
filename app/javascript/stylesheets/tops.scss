@@ -83,6 +83,15 @@
   object-fit: cover;
 }
 
+.link {
+  text-decoration: none;
+  color: white;
+}
+
+.link:hover {
+  color: white;
+}
+
 *,
 *::before,
 *::after {
