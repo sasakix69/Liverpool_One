@@ -3218,6 +3218,19 @@ textarea.form-control-lg {
   background-color: #bb2d3b;
   border-color: #b02a37;
 }
+
+.btn-liverpool {
+  color: #fff;
+  background-color: #e31b23;
+  border-color: #e31b23;
+}
+
+.btn-liverpool:hover {
+  color: #fff;
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
 .btn-check:focus + .btn-danger, .btn-danger:focus {
   color: #fff;
   background-color: #bb2d3b;
