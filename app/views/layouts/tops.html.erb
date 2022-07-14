@@ -108,7 +108,7 @@
         <!-- Moment-->
         <div id="portfolio">
             <div class="container-fluid px-0 pt-5 liverpool">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="row gx-0 gt-5 justify-content-center">
                     <div class="col-lg-8 text-center">
                         <h2 class="text-white mt-0">Moment</h2>
                         <hr class="divider divider-light" />
@@ -177,7 +177,7 @@
         <section class="page-section bg-dark text-white">
             <div class="container px-4 px-lg-5 text-center">
                 <h2 class="mb-4">会員登録をして、あなたも参加しよう！</h2>
-                <%= link_to 'ログイン', new_user_session_path, class: 'btn btn-light btn-xl' %>
+                <%= link_to 'ログイン', new_user_session_path, class: 'btn btn-liverpool btn-xl' %>
             </div>
         </section>
         <!-- Footer-->
@@ -185,8 +185,12 @@
             <div class="container px-4 px-lg-5">
                 <div class="small text-center text-white">Copyright &copy; 2022 - Liverpool One</div>
                 <div class="row">
-                    <div class="col-6 small text-white">利用規約</div>
-                    <div class="col-6 small text-white" style="text-align:right">プライバシーポリシー</div>
+                    <div class="col-6 small">
+                        <%= link_to '利用規約', page_path('terms'), class: 'link' %>
+                    </div>
+                    <div class="col-6 small" style="text-align:right">
+                        <%= link_to 'プライバシーポリシー', page_path('privacypolicy'), class: 'link' %>
+                    </div>
                 </div>
             </div>
         </footer>

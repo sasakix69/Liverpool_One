@@ -23,7 +23,7 @@
 同じサポーター同士でより熱く応援することが出来る。
 
 ## プロダクト
-リヴァプールFCの情報を提供するwebアプリケーション
+リヴァプールFCファンの交流を深めるwebアプリケーション
 
 ## マーケット
 リヴァプールFCファンの方
@@ -32,4 +32,4 @@
 https://xd.adobe.com/view/1d494f26-9533-45ce-b3d9-f8ba08cf7c3e-481a/
 
 ## ER図
-https://i.gyazo.com/70ec16323c6454af0a56c93145e62c4c.png
+https://i.gyazo.com/64edae0803b41a3d6052f6c32fb9b6f8.png
