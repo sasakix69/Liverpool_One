@@ -52,7 +52,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # パスワード無しでユーザープロフィールを更新
   def update_resource(resource, params)
-    resource.update_without_password(params)
+    resource.update_without_current_password(params)
   end
 
   # If you have extra params to permit, append them to the sanitizer.
