@@ -185,8 +185,12 @@
             <div class="container px-4 px-lg-5">
                 <div class="small text-center text-white">Copyright &copy; 2022 - Liverpool One</div>
                 <div class="row">
-                    <div class="col-6 small text-white">利用規約</div>
-                    <div class="col-6 small text-white" style="text-align:right">プライバシーポリシー</div>
+                    <div class="col-6 small">
+                        <%= link_to '利用規約', page_path('terms'), class: 'link' %>
+                    </div>
+                    <div class="col-6 small" style="text-align:right">
+                        <%= link_to 'プライバシーポリシー', page_path('privacypolicy'), class: 'link' %>
+                    </div>
                 </div>
             </div>
         </footer>
