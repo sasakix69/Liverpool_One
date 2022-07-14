@@ -36,6 +36,11 @@
 
   <div class="form-group">
     <%= f.label :new_password %>
+    
+    <% if @minimum_password_length %>
+      <small class="form-text text-muted"><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></small>
+    <% end %>
+
     <%= f.password_field :password, autocomplete: 'new-password', class: 'form-control', placeholder: '新しいパスワード' %>
 
     <small class="form-text text-muted"><%= t('.leave_blank_if_you_don_t_want_to_change_it') %></small>
