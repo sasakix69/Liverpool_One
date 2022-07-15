@@ -16,7 +16,7 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-import '../../stylesheets/tops.scss'
+import '../../stylesheets/top.scss'
 
 // Webpackerに画像ファイルをインポート
 const images = require.context('../../images', true)

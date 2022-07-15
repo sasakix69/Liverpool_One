@@ -2,8 +2,8 @@
 
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  root 'tops#index'
-  get 'tops/show'
+  root 'top#index'
+  get 'top/show'
   get 'liverpool/index'
   get 'football/ranking'
   get 'football/schedule'
