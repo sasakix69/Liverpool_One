@@ -34,10 +34,11 @@ img.tweet-img {
 .team {
   width: 100%;
   height: 100vh;
-  background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url('../images/team.jpg');
+  background: url('../images/team.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: 95% 5%;
+  
 }
 
 .user-name {
