@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'tops#index'
   get 'tops/show'
+  get 'liverpool/index'
   get 'football/ranking'
   get 'football/schedule'
 
