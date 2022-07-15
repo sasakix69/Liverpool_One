@@ -1,4 +1,10 @@
-<div class="team">
-    <%= link_to '順位表', football_ranking_path %>
-    <%= link_to '試合日程', football_schedule_path %>  
+<div class="container-fluid team">
+  <div class="row" style="padding-top:50px">
+    <div class="col-6 text-center">
+      <%= link_to '順位表', football_ranking_path, class: 'btn btn-liverpool btn-xl' %>
+    </div>
+    <div class="col-6 text-center">
+      <%= link_to '試合日程', football_schedule_path, class: 'btn btn-liverpool btn-xl' %>
+    </div>
+  </div>    
 </div>
