@@ -2,6 +2,7 @@
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 @import 'users';
 @import 'header';
+@import 'liverpool';
 
 
 .mw-md {
@@ -31,16 +32,6 @@ img.tweet-img {
   height: auto;
 }
 
-.team {
-  width: 100%;
-  height: 100vh;
-  background: url('../images/team.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 95% 5%;
-  
-}
-
 .user-name {
   text-decoration: none;
   color: gray; 
@@ -54,16 +45,4 @@ img.tweet-img {
 .calender {
   text-decoration: none;
   color: gray; 
-}
-
-.btn-team {
-  color: #e31b23;
-  background-color: #fff;
-  border-color: #fff;
-}
-
-.btn-team:hover {
-  color: #dc3545;
-  background-color: #fff;
-  border-color: #fff;
 }
