@@ -1,8 +1,10 @@
 class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.build(comment_params)
+    @tweet = @comment.tweet
     respond_to do |format|
       if @comment.save
+        @tweet.create_notification_comment!(current_user, @comment.id)
         format.js { flash.now[:notice] = t('.success') }
       else
         format.js { flash.now[:error] = t('.fail') }

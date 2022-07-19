@@ -3,6 +3,7 @@ class BookmarksController < ApplicationController
   def create
     @tweet = Tweet.find(params[:tweet_id])
     current_user.bookmark(@tweet)
+    @tweet.create_notification_bookmark!(current_user)
     # redirect_back fallback_location: root_path, success: t('.success')
   end
 

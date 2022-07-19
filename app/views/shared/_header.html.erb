@@ -44,6 +44,21 @@
           <li class="nav-item">
             <%= link_to 'チーム', liverpool_index_path, class: 'nav-link active' %>
           </li>
+          <li class="nav-item">
+            <%= link_to notifications_path, class: 'nav-link active' do %>
+              <% if unchecked_notifications.any? %>
+                <span class="fa-stack">
+                  <%= @notifications.count %>
+                  <i class="far fa-bell fa-lg fa-stack-2x" style="font-size: 13px"></i>
+                  <i class="fas fa-circle n-circle fa-stack-1x"></i>
+                </span>  
+              <% else %>
+                <span class="fa-stack">
+                  <i class="far fa-bell fa-lg" style="font-size: 1.5em;"></i>
+                </span>  
+              <% end %>
+            <% end %>    
+          </li>
         </ul>
       </div>
     </div>

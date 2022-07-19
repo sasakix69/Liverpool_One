@@ -9,6 +9,10 @@ class User < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   # throughオプションでbookmarkテーブルを経由してuserモデルとアソシエーションを作成して、bookmark_tweetsは仮のテーブル名なので、sourceオプションで参照するテーブルを指定している
   has_many :bookmark_tweets, through: :bookmarks, source: :tweet
+  # active_notifications：自分からの通知
+  has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
+  # passive_notifications：相手からの通知
+  has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
 
   mount_uploader :avatar, AvatarUploader
 
