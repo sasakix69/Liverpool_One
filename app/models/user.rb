@@ -75,4 +75,22 @@ class User < ApplicationRecord
   def bookmark?(tweet)
     bookmark_tweets.include?(tweet)
   end
+
+  # 既にフォローされている場合にフォローが重複して保存されることを防ぐ
+  def follow(other_user)
+    unless self == other_user
+      self.relationships.find_or_create_by(follow_id: other_user.id)
+    end
+  end
+
+  # フォローしていればフォローできないようにする
+  def unfollow(other_user)
+    relationship = self.relationships.find_by(follow_id: other_user.id)
+    relationship.destroy if relationship
+  end
+
+  # フォローしている user を取得し、include?(other_user)によって自分自身が含まれていないかを確認
+  def following?(other_user)
+    self.followings.include?(other_user)
+  end
 end
