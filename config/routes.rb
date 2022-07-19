@@ -32,4 +32,5 @@ Rails.application.routes.draw do
   resources :bookmarks, only: %i[create destroy]
   resources :news, only: %i[index]
   resources :notifications, only: %i[index]
+  resources :relationships, only: %i[create destroy]
 end
