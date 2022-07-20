@@ -1,0 +1,7 @@
+<h2>フォロー中</h2><hr />
+<% @users.each do |user| %>
+  <%= link_to user_path(user.id) do %>
+    <%= image_tag user.avatar_url, class: 'dropdown-user-icon' %>
+    <%= link_to user.username %>
+  <% end %>  
+<% end %>  
