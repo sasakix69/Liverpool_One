@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @tweets = @user.tweets.order(updated_at: :desc).page(params[:page]).per(15)
+    @relationship = current_user.relationships.find_by(follow_id: @user.id)
   end
 
   def bookmarks
