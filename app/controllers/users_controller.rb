@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @tweets = @user.tweets.order(updated_at: :desc).page(params[:page]).per(15)
     @relationship = current_user.relationships.find_by(follow_id: @user.id)
+    @set_relationship = current_user.relationships.new
   end
 
   def bookmarks
