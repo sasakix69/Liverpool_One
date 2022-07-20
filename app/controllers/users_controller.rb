@@ -11,6 +11,18 @@ class UsersController < ApplicationController
     @bookmark_tweets = current_user.bookmark_tweets.order(created_at: :desc).page(params[:page]).per(15)
   end
 
+  # フォローしている全てのユーザーを取得
+  def followings
+    @user = User.find(params[:id])
+    @users = @user.followings.all
+  end
+
+  # 全てのフォロワーを取得
+  def followers
+    @user = User.find(params[:id])
+    @users = @user.followers.all
+  end
+
   private
 
   def set_user
