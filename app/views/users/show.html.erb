@@ -8,7 +8,9 @@
     <% end %>
     <div class="d-flex justify-content-between align-items-center w-100 lh-100">
       <h6 class="mb-0 text-black lh-100"><%= @user.username %></h6>
-      <%= link_to '編集', edit_user_registration_path %>
+      <% if @user.id == current_user.id %>
+        <%= link_to '編集', edit_user_registration_path %>
+      <% end %>  
       <%= link_to "フォロー中: #{@user.followings.count}", followings_user_path(@user.id) %>
       <%= link_to "フォロワー: #{@user.followers.count}", followers_user_path(@user.id) %>
       <%= render 'relationships/follow_button', user: @user %>
