@@ -1,0 +1,7 @@
+<h2>フォロワー</h2><hr />
+<% @users.each do |user| %>
+  <%= link_to user_path(user.id) do %>
+    <%= image_tag user.avatar_url, class: 'dropdown-user-icon' %>
+    <%= user.username %>
+  <% end %>
+<% end %>    
