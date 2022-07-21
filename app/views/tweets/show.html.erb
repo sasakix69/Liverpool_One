@@ -7,6 +7,12 @@
         <div class="card-body">
           <div class='row'>
             <div class='col-md-3'>
+              <% if @tweet.user.avatar.present? %>
+                <%= image_tag @tweet.user.avatar_url, class: 'dropdown-user-icon' %>
+              <% else %>
+                <%= image_pack_tag 'default.jpg', class: 'dropdown-user-icon' %>
+              <% end %>     
+              <%= @tweet.user.username %>
               <p><%= simple_format(@tweet.body) %></p>
               <%= image_tag @tweet.tweet_image.url, class: 'card-img-top img-fluid' if @tweet.tweet_image? %> 
             </div>
@@ -19,8 +25,6 @@
                   <%= @tweet.bookmarks.count %>
                 <% end %>
               <ul class="list-inline">
-                <li class="list-inline-item">by</li>
-                <li class="list-inline-item user-name"><%= @tweet.user.username %></li>
                 <li class="list-inline-item calender">
                   <i class="fas fa-calendar"></i>
                   投稿日時:<%= l @tweet.created_at, format: :long %>
