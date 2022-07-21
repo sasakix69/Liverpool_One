@@ -7,8 +7,8 @@
   </td>
   <td>
     <%= link_to user_path(comment.user), class: 'user-name', method: :get do %>
-      <strong class="small"><%= comment.user.username %></strong>
-    <% end %>  
+      <%= comment.user.username %>
+    <% end %>
     <div id="js-comment-<%= comment.id %>">
       <%= simple_format(comment.body) %>
     </div>
