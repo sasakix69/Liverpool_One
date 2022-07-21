@@ -9,7 +9,7 @@
       <%= tweet.user.username %>
     <% end %>
       <%= link_to tweet_path(tweet.id), class: 'tweet-content', method: :get do %>
-        <p class="text-black"><%= tweet.body %></p>
+        <p class="text-black"><%= simple_format(tweet.body) %></p>
         <p><%= image_tag tweet.tweet_image.url, class: 'tweet-img', alt: '' if tweet.tweet_image? %></p>
       <% end %>
         <i class="fas fa-calendar"></i>
