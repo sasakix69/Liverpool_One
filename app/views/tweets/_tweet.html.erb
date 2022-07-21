@@ -8,25 +8,25 @@
       <% end %>
       <%= tweet.user.username %>
     <% end %>
-      <%= link_to tweet_path(tweet.id), class: 'tweet-content', method: :get do %>
-        <p class="text-black"><%= simple_format(tweet.body) %></p>
-        <p><%= image_tag tweet.tweet_image.url, class: 'tweet-img', alt: '' if tweet.tweet_image? %></p>
+  </p>  
+  <%= link_to tweet_path(tweet.id), class: 'tweet-content', method: :get do %>
+    <%= simple_format(tweet.body) %>
+    <p><%= image_tag tweet.tweet_image.url, class: 'tweet-img', alt: '' if tweet.tweet_image? %></p>
+  <% end %>        
+  <i class="fas fa-calendar"></i>
+  投稿日時:<%= l tweet.created_at, format: :long %>  
+  <td class="action">
+    <ul class="list-inline justify-content-center" style="float: right;">   
+      <% if current_user.own?(tweet) %>
+        <li class="list-inline-item">
+          <p><%= render 'crud_menus', tweet: tweet %></p>
+        </li>    
       <% end %>
-        <i class="fas fa-calendar"></i>
-        投稿日時:<%= l tweet.created_at, format: :long %>
-      <td class="action">
-        <ul class="list-inline justify-content-center" style="float: right;">   
-          <% if current_user.own?(tweet) %>
-            <li class="list-inline-item">
-              <p><%= render 'crud_menus', tweet: tweet %></p>
-            </li>    
-          <% end %>
-        </ul>
-      </td>    
-      <%= render 'shared/bookmark_button', tweet: tweet %>
-      <% if tweet.bookmarks.count != 0 %>
-        <%= tweet.bookmarks.count %>
-      <% end %>      
-  </p>
+    </ul>
+  </td>    
+  <%= render 'shared/bookmark_button', tweet: tweet %>
+  <% if tweet.bookmarks.count != 0 %>
+    <%= tweet.bookmarks.count %>
+  <% end %> 
 </div>  
    
