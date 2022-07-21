@@ -48,3 +48,25 @@ img.tweet-img {
   text-decoration: none;
   color: gray; 
 }
+
+.no-select-link {
+  text-decoration: none;
+  color: gray;
+}
+
+.select-link {
+  text-decoration: none;
+  border-bottom: 3px solid #e31b23;
+  padding-bottom: 2px;
+  font-weight: bold;
+  color: black;
+}
+
+a:hover {
+  color: #e31b23;
+}
+
+.link-to-do {
+  text-decoration: none;
+  color: black;
+}
