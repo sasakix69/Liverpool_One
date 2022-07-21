@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :confirmable, :lockable, :timeoutable, :trackable, :omniauthable
+         :confirmable, :lockable, :trackable, :omniauthable
 
   validates :username, presence: true
   has_many :tweets, dependent: :destroy
