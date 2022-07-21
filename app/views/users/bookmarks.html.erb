@@ -87,7 +87,7 @@
             <%= image_tag tweet.tweet_image.url, class: 'tweet-img', alt: '' if tweet.tweet_image? %>
             <span class="text-muted">
               <i class="fas fa-calendar"></i>
-              投稿日時:<%= l tweet.created_at, format: :long %>
+              <%= l tweet.created_at, format: :long %>
             </span>    
             <% if current_user.own?(tweet) %>
               <%= render 'tweets/crud_menus', tweet: tweet %>  

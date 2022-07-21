@@ -14,7 +14,7 @@
     </div>
       <li class="list-inline-item calender justify-content-end">
         <i class="fas fa-calendar"></i>
-        投稿日時:<%= l comment.created_at, format: :long %>
+        <%= l comment.created_at, format: :long %>
       </li>
       <% if current_user.own?(comment) %>        
         <ul class="list-inline justify-content-center" style="float: right;">
