@@ -1,16 +1,37 @@
 <!-- いいね一覧 -->
 <main role="main" class="container">
 
-  <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded shadow-sm">
-    <% if @user.avatar? %>
-      <%= image_tag @user.avatar.thumb.url, class: 'user-icon mr-3', alt: "", size: '140' %>
-    <% else %>
-      <%= image_pack_tag 'default.jpg', alt: "user-icon", class: "mr-3", size: '140' %>
-    <% end %>
-    <div class="d-flex justify-content-between align-items-center w-100 lh-100">
-      <h6 class="mb-0 text-black lh-100"><%= @user.username %></h6>
-      <%= link_to '編集', edit_user_registration_path %>
+  <div class="p-3 my-3 text-white-50 rounded shadow-sm text-center">
+    <div class="text-end">
+      <% if @user.id == current_user.id %>
+        <%= link_to '編集', edit_user_registration_path %>
+      <% end %>
+      <%= render 'relationships/follow_button', user: @user %>  
     </div>  
+    <div class="p-3 my-3 text-center">
+      <% if @user.avatar? %>
+        <%= image_tag @user.avatar.thumb.url, class: 'user-icon mr-3', alt: "", size: '140' %>
+      <% else %>
+        <%= image_pack_tag 'default.jpg', alt: "user-icon", class: "mr-3", size: '140' %>
+      <% end %>
+      <strong><p class="mb-0 text-black lh-100 text-center"><%= @user.username %></p></strong>
+    </div>  
+    <div class="row justify-content-evenly">
+      <div class="col-4">
+        <%= link_to "フォロー中", followings_user_path(@user.id) %>
+      </div>
+      <div class="col-4">  
+        <%= link_to "フォロワー", followers_user_path(@user.id) %> 
+      </div>  
+    </div>
+    <div class="row justify-content-evenly">
+      <div class="col-4">
+        <%= link_to "#{@user.followings.count}", followings_user_path(@user.id) %>
+      </div>
+      <div class="col-4">  
+        <%= link_to "#{@user.followers.count}", followers_user_path(@user.id) %> 
+      </div>  
+    </div> 
   </div>
 
   <div class="my-3 p-3 bg-white rounded shadow-sm">
