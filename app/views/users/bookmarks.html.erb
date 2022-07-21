@@ -18,18 +18,18 @@
     </div>  
     <div class="row justify-content-evenly">
       <div class="col-4">
-        <%= link_to "フォロー中", followings_user_path(@user.id) %>
+        <%= link_to "フォロー中", followings_user_path(@user.id), class: 'no-select-link' %>
       </div>
       <div class="col-4">  
-        <%= link_to "フォロワー", followers_user_path(@user.id) %> 
+        <%= link_to "フォロワー", followers_user_path(@user.id), class: 'no-select-link' %> 
       </div>  
     </div>
     <div class="row justify-content-evenly">
       <div class="col-4">
-        <%= link_to "#{@user.followings.count}", followings_user_path(@user.id) %>
+        <%= link_to "#{@user.followings.count}", followings_user_path(@user.id), class: 'follow-num' %>
       </div>
       <div class="col-4">  
-        <%= link_to "#{@user.followers.count}", followers_user_path(@user.id) %> 
+        <%= link_to "#{@user.followers.count}", followers_user_path(@user.id), class: 'follow-num' %> 
       </div>  
     </div> 
   </div>
