@@ -1,0 +1,16 @@
+<div class="container-fluid fixed-bottom py-3 footer text-center">
+  <div class="row">
+    <%= link_to tweets_path, class: 'col-3 text-white' do %>
+      <i class="fas fa-home"></i>
+    <% end %>
+    <%= link_to news_index_path, class: 'col-3 text-white' do %>
+      <i class="fas fa-rss"></i> 
+    <% end %> 
+    <%= link_to liverpool_index_path, class: 'col-3' do %>
+      <i><%= image_pack_tag 'logo.png', size: '23' %></i>  
+    <% end %>
+    <%= link_to notifications_path, class: 'col-3 text-white' do %>
+      <i class="bi bi-bell"></i> 
+    <% end %> 
+  </div>
+</div>
