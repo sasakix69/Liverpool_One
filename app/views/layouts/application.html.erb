@@ -20,6 +20,7 @@
   <body>
     <% unless controller.devise_controller? %>
       <%= render 'shared/header' %>
+      <%= render 'shared/footer' %>
     <% end %>
       
     <% if controller.devise_controller? %>
