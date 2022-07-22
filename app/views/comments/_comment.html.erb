@@ -7,19 +7,19 @@
   </td>
   <td>
     <%= link_to user_path(comment.user), class: 'user-name', method: :get do %>
-      <strong class="small"><%= comment.user.username %></strong>
-    <% end %>  
+      <%= comment.user.username %>
+    <% end %>
     <div id="js-comment-<%= comment.id %>">
       <%= simple_format(comment.body) %>
     </div>
       <li class="list-inline-item calender justify-content-end">
         <i class="fas fa-calendar"></i>
-        投稿日時:<%= l comment.created_at, format: :long %>
+        <%= l comment.created_at, format: :long %>
       </li>
       <% if current_user.own?(comment) %>        
         <ul class="list-inline justify-content-center" style="float: right;">
           <li class="list-inline-item">
-            <a href="#" class='js-edit-comment-button' data-comment-id="<%= comment.id %>">
+            <a href="#" class="js-edit-comment-button" data-comment-id="<%= comment.id %>">
               <i class="fas fa-pen"></i>
             </a>
           </li>

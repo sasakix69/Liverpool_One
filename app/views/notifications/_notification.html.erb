@@ -12,7 +12,7 @@
       <% case notification.action 
         when 'bookmark' then %>
           <%= link_to 'あなたの投稿', notification.tweet, style: "font-weight: bold;" %>にいいねしました
-        <% when 'comment' then %>
+      <% when 'comment' then %>
         <% if notification.tweet.user_id == visited.id %>
           <%= link_to "あなたの投稿", notification.tweet, style: "font-weight: bold;" %>にコメントしました
           <p class="text-muted mb-0">
@@ -30,6 +30,8 @@
             <%= Comment.find_by(id: notification.comment_id)&.body %>
           </p>
         <% end %>
+      <% when 'follow' then %>
+        あなたをフォローしました
       <% end %>  
     </span>      
   </div>

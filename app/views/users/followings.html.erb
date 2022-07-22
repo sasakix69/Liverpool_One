@@ -1,0 +1,22 @@
+<div class="row justify-content-evenly text-center">
+  <div class="col-4">
+    <h4><%= link_to 'フォロー中', followings_user_path(@user.id), class: 'select-link' %></h4>
+  </div>
+  <div class="col-4">
+    <h4><%= link_to 'フォロワー', followers_user_path(@user.id), class: 'no-select-link' %></h4>
+  </div>
+</div><hr />
+<div class="col-md-6 mx-auto">
+  <div class="form-inline">
+    <% @users.each do |user| %>
+      <%= link_to user_path(user.id), class: 'link-to-do' do %>
+        <%= image_tag user.avatar_url, class: 'dropdown-user-icon' %>
+        <a class="user-name"><%= user.username %><a>
+        <p><%= User.human_attribute_name(:kop_history) %> : <%= user.kop_history %> 年</p>
+        <p><%= User.human_attribute_name(:favorite_player) %> : <%= @user.favorite_player %></p>
+        <hr />
+      <% end %>  
+    <% end %>
+  </div>
+</div>
+  

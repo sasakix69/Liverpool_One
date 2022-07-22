@@ -1,15 +1,36 @@
 <main role="main" class="container">
 
-  <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded shadow-sm">
-    <% if @user.avatar? %>
-      <%= image_tag @user.avatar.thumb.url, class: 'user-icon mr-3', alt: "", size: '140' %>
-    <% else %>
-      <%= image_pack_tag 'default.jpg', alt: "user-icon", class: "mr-3", size: '140' %>
-    <% end %>
-    <div class="d-flex justify-content-between align-items-center w-100 lh-100">
-      <h6 class="mb-0 text-black lh-100"><%= @user.username %></h6>
-      <%= link_to '編集', edit_user_registration_path %>
+  <div class="p-3 my-3 text-white-50 rounded shadow-sm text-center">
+    <div class="text-end">
+      <% if @user.id == current_user.id %>
+        <%= link_to '編集', edit_user_registration_path, class: 'btn btn-success' %>
+      <% end %>
+      <%= render 'relationships/follow_button', user: @user %>  
     </div>  
+    <div class="p-3 my-3 text-center">
+      <% if @user.avatar? %>
+        <%= image_tag @user.avatar.thumb.url, class: 'user-icon mr-3', alt: "", size: '140' %>
+      <% else %>
+        <%= image_pack_tag 'default.jpg', alt: "user-icon", class: "mr-3", size: '140' %>
+      <% end %>
+      <strong><p class="mb-0 text-black lh-100 text-center"><%= @user.username %></p></strong>
+    </div>  
+    <div class="row justify-content-evenly">
+      <div class="col-4">
+        <%= link_to "フォロー中", followings_user_path(@user.id), class: 'no-select-link' %>
+      </div>
+      <div class="col-4">  
+        <%= link_to "フォロワー", followers_user_path(@user.id), class: 'no-select-link' %> 
+      </div>  
+    </div>
+    <div class="row justify-content-evenly">
+      <div class="col-4">
+        <%= link_to "#{@user.followings.count}", followings_user_path(@user.id), class: 'follow-num' %>
+      </div>
+      <div class="col-4">  
+        <%= link_to "#{@user.followers.count}", followers_user_path(@user.id), class: 'follow-num' %> 
+      </div>  
+    </div> 
   </div>
 
   <div class="my-3 p-3 bg-white rounded shadow-sm">
@@ -43,36 +64,42 @@
 
   
   <div class="my-3 p-3 bg-white rounded shadow-sm">
-    <!-- <h6 class="border-bottom border-gray pb-2 mb-0">Recent updates</h6> -->
-    <h6 class="border-bottom border-gray pb-2 mb-0"><%= Tweet.human_attribute_name(:body) %>
-      <%= link_to "いいね", bookmarks_user_path(@user) %>
-    </h6>
+    <div class="row justify-content-evenly text-center">
+      <div class="col-4">
+        <h6><%= link_to Tweet.human_attribute_name(:body), user_path(@user), class: 'select-link' %></h6>
+      </div>
+      <div class="col-4">
+        <h6><%= link_to Bookmark.model_name.human, bookmarks_user_path(@user), class: 'no-select-link' %></h6>
+      </div>
+    </div><hr />
     <div class="scroll-list jscroll">
       <% @tweets.each do |tweet| %>
-        <div class="media text-muted pt-3">      
+        <div class="media pt-3">      
           <img data-src="holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1" alt="" class="mr-2 rounded">
-          <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-            <%= link_to user_path(tweet.user), method: :get do %>
+          <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            <%= link_to user_path(tweet.user), class: 'user-name', method: :get do %>
               <% if tweet.user.avatar? %>
                 <%= image_tag tweet.user.avatar_url, class: 'rounded-circle', size: '50x50' %>
               <% else %>
                 <%= image_pack_tag 'default.jpg', class: 'rounded-circle', size: '50x50' %>
               <% end %>  
             <% end %>
-            <strong class="d-block text-gray-dark"><%= tweet.user.username %></strong>
+            <strong><%= tweet.user.username %></strong>
             <!-- User Tweet -->
-            <%= tweet.body %>
+            <p><%= simple_format(tweet.body) %></p>
             <%= image_tag tweet.tweet_image.url, class: 'tweet-img', alt: '' if tweet.tweet_image? %>
-            <i class="fas fa-calendar"></i>
-            投稿日時:<%= l tweet.created_at, format: :long %>
+            <span class="text-muted">
+              <i class="fas fa-calendar"></i>
+              <%= l tweet.created_at, format: :long %>
+            </span>    
             <% if current_user.own?(tweet) %>
               <%= render 'tweets/crud_menus', tweet: tweet %>  
             <% end %>
             <%= render 'shared/bookmark_button', tweet: tweet %>
             <% if tweet.bookmarks.count != 0 %>
               <%= tweet.bookmarks.count %>
-            <% end %>  
-          </p>   
+            <% end %>
+          </div>     
         </div>
       <% end %>
       <%= paginate @tweets %>

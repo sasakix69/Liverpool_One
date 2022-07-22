@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   resources :users, only: %i[show] do
     member do
       get :bookmarks
+      get :followings
+      get :followers
     end
   end
 
@@ -32,4 +34,5 @@ Rails.application.routes.draw do
   resources :bookmarks, only: %i[create destroy]
   resources :news, only: %i[index]
   resources :notifications, only: %i[index]
+  resources :relationships, only: %i[create destroy]
 end

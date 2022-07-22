@@ -35,7 +35,8 @@ img.tweet-img {
 
 .user-name {
   text-decoration: none;
-  color: gray; 
+  color: black;
+  font-weight: bold; 
 }
 
 .tweet-content {
@@ -46,4 +47,28 @@ img.tweet-img {
 .calender {
   text-decoration: none;
   color: gray; 
+}
+
+.no-select-link {
+  text-decoration: none;
+  color: gray;
+}
+
+.select-link {
+  text-decoration: none;
+  border-bottom: 3px solid #e31b23;
+  padding-bottom: 2px;
+  font-weight: bold;
+  color: black;
+}
+
+.link-to-do {
+  text-decoration: none;
+  color: black;
+}
+
+.follow-num {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
 }

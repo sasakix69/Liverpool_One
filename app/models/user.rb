@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :confirmable, :lockable, :timeoutable, :trackable, :omniauthable
+         :confirmable, :lockable, :trackable, :omniauthable
 
   validates :username, presence: true
   has_many :tweets, dependent: :destroy
@@ -13,6 +13,13 @@ class User < ApplicationRecord
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
   # passive_notifications：相手からの通知
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
+  has_many :relationships
+  # フォローしているuserを取得
+  has_many :followings, through: :relationships, source: :follow
+  # followingsテーブルからフォローしている人のデータを取得
+  has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
+  # userテーブルから自分をフォローしているuserを取得
+  has_many :followers, through: :reverse_of_relationships, source: :user
 
   mount_uploader :avatar, AvatarUploader
 
@@ -67,5 +74,32 @@ class User < ApplicationRecord
   # ログインしているユーザーに紐づいたブックマークのレコードに引数で渡されたツイートモデルと紐づいたレコードが存在するか。存在すればユーザーはそのツイートをブックマークしていると判定、存在しなければブックマークされていないと判定できる
   def bookmark?(tweet)
     bookmark_tweets.include?(tweet)
+  end
+
+  # 既にフォローされている場合にフォローが重複して保存されることを防ぐ
+  def follow(other_user)
+    relationships.find_or_create_by(follow_id: other_user.id) unless self == other_user
+  end
+
+  # フォローしていればフォローできないようにする
+  def unfollow(other_user)
+    relationship = relationships.find_by(follow_id: other_user.id)
+    relationship.destroy if relationship
+  end
+
+  # フォローしている user を取得し、include?(other_user)によって自分自身が含まれていないかを確認
+  def following?(other_user)
+    followings.include?(other_user)
+  end
+
+  def create_notification_follow!(current_user)
+    temp = Notification.where(['visitor_id = ? and visited_id = ? and action = ? ', current_user.id, id, 'follow'])
+    if temp.blank?
+      notification = current_user.active_notifications.new(
+        visited_id: id,
+        action: 'follow'
+      )
+      notification.save if notification.valid?
+    end
   end
 end

@@ -9,7 +9,8 @@ class Tweet < ApplicationRecord
 
   def create_notification_bookmark!(current_user)
     # すでに「いいね」されているか検索
-    temp = Notification.where(["visitor_id = ? and visited_id = ? and tweet_id = ? and action = ? ", current_user.id, user_id, id, 'bookmark'])
+    temp = Notification.where(['visitor_id = ? and visited_id = ? and tweet_id = ? and action = ? ', current_user.id,
+                               user_id, id, 'bookmark'])
     # いいねされていない場合のみ、通知レコードを作成
     if temp.blank?
       notification = current_user.active_notifications.new(
@@ -18,9 +19,7 @@ class Tweet < ApplicationRecord
         action: 'bookmark'
       )
       # 自分の投稿に対するいいねの場合は、通知済みとする
-      if notification.visitor_id == notification.visited_id
-        notification.checked = true
-      end
+      notification.checked = true if notification.visitor_id == notification.visited_id
       notification.save if notification.valid?
     end
   end
@@ -39,14 +38,12 @@ class Tweet < ApplicationRecord
     # コメントは複数回することが考えられるため、１つの投稿に複数回通知する
     notification = current_user.active_notifications.new(
       tweet_id: id,
-      comment_id: comment_id,
-      visited_id: visited_id,
+      comment_id:,
+      visited_id:,
       action: 'comment'
     )
     # 自分の投稿に対するコメントの場合は、通知済みとする
-    if notification.visitor_id == notification.visited_id
-      notification.checked = true
-    end
+    notification.checked = true if notification.visitor_id == notification.visited_id
     notification.save if notification.valid?
   end
 end
