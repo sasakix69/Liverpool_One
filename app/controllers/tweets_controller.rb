@@ -31,7 +31,7 @@ class TweetsController < ApplicationController
 
   def update
     if @tweet.update(tweet_params)
-      redirect_to tweet_path(@tweet.id), success: t('defaults.message.updated', item: Tweet.model_name.human)
+      redirect_to tweet_path(@tweet.id), notice: t('defaults.message.updated', item: Tweet.model_name.human)
     else
       flash.now[:error] = t('defaults.message.not_updated', item: Tweet.model_name.human)
       render :edit
@@ -40,7 +40,7 @@ class TweetsController < ApplicationController
 
   def destroy
     @tweet.destroy!
-    redirect_to tweets_path, success: t('defaults.message.destroyed', item: Tweet.model_name.human)
+    redirect_to tweets_path, notice: t('defaults.message.destroyed', item: Tweet.model_name.human)
   end
 
   # def bookmarks
