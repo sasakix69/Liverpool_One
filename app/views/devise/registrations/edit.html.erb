@@ -1,4 +1,4 @@
-<h1><%= t('.title') %></h1>
+<h1 class="text-center"><%= t('.title') %></h1>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= bootstrap_devise_error_messages! %>
@@ -6,9 +6,9 @@
   <div class="form-group">
     <%= f.label :avatar %>
     <% if @user.avatar? %>
-      <%= image_tag @user.avatar.thumb.url, size: "200", class: 'user-icon', id: 'img_prev' %>
+      <%= image_tag @user.avatar.thumb.url, size: "200", class: 'user-icon text-center', id: 'img_prev', alt: "user-icon" %>  
     <% else %>
-      <%= image_pack_tag 'default.jpg', alt: "user-icon", size: "200", class: "user-icon", id: 'img_prev' %>
+      <%= image_pack_tag 'default.jpg', size: "200", class: "user-icon text-center", id: 'img_prev', alt: "user-icon" %>
     <% end %>
     <%= f.file_field :avatar, class: 'form-control', id: :preview, accept: 'image/*' %>
     <%= f.hidden_field :avatar_cache, class: 'form-control' %>
