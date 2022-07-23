@@ -11,11 +11,13 @@
     <% end %>
     <%= link_to notifications_path, class: 'col-3 text-white' do %>
       <% if unchecked_notifications.any? %>
-        <span class="fa-stack">
-          <%= @notifications.count %>
-          <i class="far fa-bell fa-lg fa-stack-2x" style="font-size: 13px"></i>
-          <i class="fas fa-circle n-circle fa-stack-1x"></i>
-        </span>  
+        <span class="fa-stack position-relative">
+          <i class="far fa-bell fa-lg"></i>
+          <span class="position-absolute top-0 start-90 translate-middle badge rounded-pill bg-warning">
+            <span class="notifications-count"><%= @notifications.count %></span>
+            <span class="visually-hidden">unread messages</span>
+          </span>
+        </span>
       <% else %>
         <span class="fa-stack">
           <i class="far fa-bell fa-lg"></i>
