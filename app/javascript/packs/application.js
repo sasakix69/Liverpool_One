@@ -25,6 +25,7 @@ import '../src/football/schedule'
 import '../src/football/ranking'
 import '../src/scroll/jquery.jscroll.min.js'
 import '../src/comment/edit_comment'
+import 'bootstrap-icons/font/bootstrap-icons.css'
 import '@fortawesome/fontawesome-free/js/all'
 import '../stylesheets/application'
 

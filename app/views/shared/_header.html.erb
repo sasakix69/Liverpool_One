@@ -1,8 +1,12 @@
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top p-0">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Liverpool One</a>
     <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-expanded="false" aria-controls="offcanvasNavbar">
-      <span class="navbar-toggler-icon"></span>
+      <% if current_user.avatar.present? %>
+        <%= image_tag current_user.avatar.dropdown.url, class: 'dropdown-user-icon' %>
+      <% else %>
+        <%= image_pack_tag 'default.jpg', class: 'dropdown-user-icon', size: '50x50' %>
+      <% end %>  
     </button>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
       <div class="offcanvas-header">
@@ -11,53 +15,30 @@
       </div>
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <% if current_user.avatar.present? %>
-                <%= image_tag current_user.avatar.dropdown.url, class: 'dropdown-user-icon' %>
-              <% else %>
-                <%= image_pack_tag 'default.jpg', class: 'dropdown-user-icon', size: '50x50' %>
-              <% end %>  
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
-              <li><%= link_to 'マイページ', user_path(id: current_user.id), class: 'dropdown-item' %></li>
-              <li><%= link_to 'プロフィール変更', edit_user_registration_path, class: 'dropdown-item' %></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <!--ログインしてるユーザーが管理者の場合のみ-->
-              <% if current_user.try(:admin?) %>
-                <li><%= link_to '管理者ログイン', rails_admin_path, class: 'dropdown-item' %></li>
-              <% end %>
-              <li><%= link_to 'ログアウト', destroy_user_session_path, class: 'dropdown-item', method: :delete %></li>
-            </ul>
+          <li class="nav-item">   
+            <% if current_user.avatar.present? %>
+              <%= image_tag current_user.avatar.dropdown.url, class: 'dropdown-user-icon' %>
+            <% else %>
+              <%= image_pack_tag 'default.jpg', class: 'dropdown-user-icon', size: '50x50' %>
+            <% end %>
+          </li>
+          <li class="nav-item">    
+            <%= link_to 'マイページ', user_path(id: current_user.id), class: 'nav-link active' %>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">ホーム</a>
+            <%= link_to 'プロフィール変更', edit_user_registration_path, class: 'nav-link active' %>
           </li>
-          <li class="nav-item">
-            <%= link_to 'ツイート', tweets_path ,class: 'nav-link active' %>
+          <li>
+            <hr class="divider text-white">
           </li>
+          <!--ログインしてるユーザーが管理者の場合のみ-->
+          <% if current_user.try(:admin?) %>
+            <li class="nav-item">
+              <%= link_to '管理者ログイン', rails_admin_path, class: 'nav-link active' %>
+            </li>
+          <% end %>
           <li class="nav-item">
-            <%= link_to 'ニュース', news_index_path, class: 'nav-link active' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to 'チーム', liverpool_index_path, class: 'nav-link active' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to notifications_path, class: 'nav-link active' do %>
-              <% if unchecked_notifications.any? %>
-                <span class="fa-stack">
-                  <%= @notifications.count %>
-                  <i class="far fa-bell fa-lg fa-stack-2x" style="font-size: 13px"></i>
-                  <i class="fas fa-circle n-circle fa-stack-1x"></i>
-                </span>  
-              <% else %>
-                <span class="fa-stack">
-                  <i class="far fa-bell fa-lg" style="font-size: 1.5em;"></i>
-                </span>  
-              <% end %>
-            <% end %>    
+            <%= link_to 'ログアウト', destroy_user_session_path, class: 'nav-link active', method: :delete %>
           </li>
         </ul>
       </div>
