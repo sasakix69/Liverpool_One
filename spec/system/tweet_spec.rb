@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'ツイート', type: :system do
-
   context 'ツイートができるとき' do
     before do
       user = create(:user)
@@ -40,7 +39,6 @@ RSpec.describe 'ツイート', type: :system do
 end
 
 RSpec.describe 'ツイートの編集', type: :system do
-
   before do
     user = create(:user)
     @tweet1 = FactoryBot.create(:tweet, user:)
@@ -101,7 +99,6 @@ RSpec.describe 'ツイートの編集', type: :system do
 end
 
 RSpec.describe 'ツイートの削除', type: :system do
-
   before do
     user = create(:user)
     @tweet1 = FactoryBot.create(:tweet, user:)
@@ -133,7 +130,7 @@ RSpec.describe 'ツイートの削除', type: :system do
       expect(page).to have_no_content("#{@tweet1.body}")
     end
   end
-  
+
   context '投稿が削除ができないとき' do
     it 'ログインしたユーザーは自分以外が投稿した内容の削除ができない' do
       # tweet2を投稿したユーザーとして投稿ページに遷移する
