@@ -3,12 +3,12 @@ require 'rails_helper'
 RSpec.describe 'ツイート', type: :system do
   context 'ツイートができるとき' do
     before do
-      user = create(:user)
+      user = create(:user, email: 'email@example.com')
       @tweet_body = Faker::Lorem.sentence
     end
     it 'ログインしたユーザーは新規投稿できる' do
       visit user_session_path
-      fill_in 'Eメール', with: 'TEST@example.com'
+      fill_in 'Eメール', with: 'email@example.com'
       fill_in 'パスワード', with: 'testuser'
       click_on 'ログイン'
       # 新規投稿ページへのリンクがあることを確認する
