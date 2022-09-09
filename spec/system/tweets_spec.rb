@@ -77,6 +77,7 @@ RSpec.describe 'ツイートの編集', type: :system do
       expect(page).to have_content("#{@tweet1.body}+編集したツイート")
     end
   end
+
   context 'ツイートの編集ができないとき' do
     it 'ログインしたユーザーは自分以外がツイートした投稿の編集画面には遷移できない' do
       # ログインする
