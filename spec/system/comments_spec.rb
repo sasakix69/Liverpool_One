@@ -62,19 +62,15 @@ RSpec.describe 'コメントの編集', type: :system do
       it 'ログインしたユーザーは自分以外がしたコメントの編集画面には遷移できない' do
         # ログインする
         sign_in(@comment1.user)
-
+        visit tweet_path(@tweet1.id)
+        fill_in 'comment[body]', with: 'テストコメント'
+        click_on 'コメントを投稿'
+        expect(page).to have_content 'テストコメント'
         # comment2をコメントしたユーザーとしてコメントページに遷移する
-        visit tweet_path(@comment2.id)
-
+        sign_in(@comment2.user)
+        visit tweet_path(@tweet1.id)
         # 「編集」ボタンがないことを確認する
         expect(page).to have_no_link('.js-edit-comment-button')
-      end
-      it 'ログインしていないとコメントの編集画面には遷移できない' do
-        # コメントページに移動する
-        visit comment_path(@comment1.id)
-
-        # comment1に「編集」ボタンがないことを確認する
-        expect(page).to have_no_link('button-edit-#{@comment1.id}'), href: edit_comment_path(@comment1)
       end
     end
 end
