@@ -13,7 +13,7 @@
         <%= image_tag user.avatar_url, class: 'dropdown-user-icon' %>
         <a class="user-name"><%= user.username %><a>
         <p><%= User.human_attribute_name(:kop_history) %> : <%= user.kop_history %> 年</p>
-        <p><%= User.human_attribute_name(:favorite_player) %> : <%= @user.favorite_player %></p>
+        <p><%= User.human_attribute_name(:favorite_player) %> : <%= user.favorite_player %></p>
         <hr />
       <% end %>
     <% end %>
