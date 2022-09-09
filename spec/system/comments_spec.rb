@@ -78,50 +78,50 @@ end
 RSpec.describe 'コメントの削除', type: :system do
     before do
       user = create(:user)
-      @comment1 = FactoryBot.create(:comment, user:)
-      @comment2 = FactoryBot.create(:comment, user:)
+      @user = create(:user, email: 'email@example.com')
+      @tweet = create(:tweet, user:)
+      @comment1 = create(:comment, user:)
+      @comment2 = create(:comment, user:)
     end
 
-    context 'コメントの削除ができるとき' do
+    context 'コメントの削除ができるとき', js: true do
       it 'ログインしたユーザーは自らがコメントしたコメントの削除ができる' do
         # comment1をコメントしたユーザーでログインする
         sign_in(@comment1.user)
-
-        # コメントページに移動する
-        visit comment_path(@comment1.id)
-
+        visit tweet_path(@tweet.id)
+        fill_in 'comment[body]', with: 'テストコメント'
+        click_on 'コメントを投稿'
+        expect(page).to have_content 'テストコメント'
         # コメントを削除するとレコードの数が1減ることを確認する
-        link = find('.trash')
-        link.click
-
+        find(".js-delete-comment-button").click
         expect do
-          expect(page.driver.browser.switch_to.alert.text).to eq '削除しますか？'
+          expect(page.driver.browser.switch_to.alert.text).to eq 'よろしいですか？'
           page.driver.browser.switch_to.alert.accept
-          expect(page).to have_content 'コメントを削除しました'
-        end.to change { Tweet.count }.by(-1)
-
+          expect(page).to have_no_content 'テストコメント'
+        end.to change { Comment.count }.by(-1)
         # 削除完了画面に遷移したことを確認する
-        expect(current_path).to eq(tweets_path)
-
-        # トップページにはcomment1の内容が存在しないことを確認する（テキスト）
-        expect(page).to have_no_content("#{@comment1.body}")
+        expect(current_path).to eq(tweet_path(@tweet.id))
       end
     end
 
     context 'コメントが削除ができないとき' do
       it 'ログインしたユーザーは自分以外がコメントした内容の削除ができない' do
+        sign_in(@comment1.user)
+        visit tweet_path(@tweet.id)
+        fill_in 'comment[body]', with: 'テストコメント'
+        click_on 'コメントを投稿'
+        expect(page).to have_content 'テストコメント'
         # comment2をコメントしたユーザーとしてコメントページに遷移する
-        visit comment_path(@comment2.id)
-
+        sign_in(@user)
+        visit tweet_path(@tweet.id)
         # comment2に「削除」ボタンが無いことを確認する
-        expect(page).to have_no_selector('.trash'), href: comment_path(@comment1)
+        expect(page).to have_no_selector('.js-delete-comment-button')
       end
       it 'ログインしていないとコメントの削除ボタンがない' do
         # コメントページに移動する
-        visit comment_path(@comment1.id)
-
+        visit tweet_path(@tweet.id)
         # comment1に「削除」ボタンがないことを確認する
-        expect(page).to have_no_selector('.trash'), href: comment_path(@comment1)
+        expect(page).to have_no_selector('.js-delete-comment-button')
       end
     end
 end
