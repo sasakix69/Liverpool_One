@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'ツイート', type: :system do
+RSpec.describe 'Tweets', type: :system do
   context 'ツイートができるとき' do
     before do
       user = create(:user, email: 'email@example.com')
