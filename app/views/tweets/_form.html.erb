@@ -5,16 +5,15 @@
         <%= render 'shared/error_messages', object: f.object %>
         <div class="form-group">
           <%= f.label :body %>
-          <%= f.text_area :body, class: 'form-control', rows: 10 %>
+          <%= f.text_area :body, class: 'form-control', rows: 5 %>
         </div>
         <div class="form-group">
           <%= f.label :tweet_image %>
           <%= f.file_field :tweet_image, id: :preview, class: 'form-control mb-3', accept: 'image/*' %>
           <%= f.hidden_field :tweet_image_cache %>
-          <%= image_tag tweet.tweet_image.url, class: 'tweet-img', id: 'img_prev' %>
+          <p class="text-center"><%= image_tag tweet.tweet_image.url, class: 'tweet-img text-center', id: 'img_prev', size: '500' %></p>
         </div>
-
-        <%= f.submit t('tweets.new.register_tweet'), class: 'btn btn-primary' %>  
+        <p><%= f.submit t('tweets.new.register_tweet'), class: 'btn btn-primary' %></p>
       <% end %>
     </div>
   </div>

@@ -1,3 +1,3 @@
-<%= link_to bookmark_path(current_user.bookmarks.find_by(tweet_id: tweet.id)), id: "js-bookmark-button-for-tweet-#{tweet.id}", class: 'float-right', method: :delete, remote: true do %>
+<%= link_to bookmark_path(current_user.bookmarks.find_by(tweet_id: tweet.id)), id: "js-bookmark-button-for-tweet-#{tweet.id}", class: 'float-right unbookmark', method: :delete, remote: true do %>
   <i class="fas fa-heart faa-pulse animated" style="color:red;"></i>
 <% end %>
