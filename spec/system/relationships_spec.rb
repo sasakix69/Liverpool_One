@@ -13,7 +13,7 @@ RSpec.describe 'Relationships', type: :system do
 
       # @user1として@user2詳細ページへ遷移する
       visit user_path(@user2.id)
-      
+
       # @user2をフォローする
       expect(page).to have_button('フォローする')
       click_on('フォローする')
