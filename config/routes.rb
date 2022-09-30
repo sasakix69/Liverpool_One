@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'liverpool/index'
   get 'football/ranking'
   get 'football/schedule'
+  post '/callback' => 'linebot#callback'
 
   # controllerを指定することで、指定内のcontrollerで記述する内容を有効に出来る
   devise_for :users, controllers: {
