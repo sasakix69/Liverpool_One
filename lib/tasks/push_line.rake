@@ -14,7 +14,9 @@ namespace :push_line do
     end
 
     # 対戦クラブの試合時間10分前　ここから
-    Brighton_Hove_Albion_FC = Time.local(2022, 10, 1, 22, 50)
+    # Brighton_Hove_Albion_FC = Time.local(2022, 10, 1, 22, 50)
+    Brighton_Hove_Albion_FC = Time.local(2022, 9, 30, 16, 7)
+
     Rangers_FC = Time.local(2022, 10, 5, 3, 50)
     Arsenal_FC = Time.local(2022, 10, 10, 00, 20)
     Rangers_FC_2 = Time.local(2022, 10, 13, 3, 50)
