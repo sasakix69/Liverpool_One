@@ -5,7 +5,7 @@ namespace :push_line do
   task push_line_message: :environment do
     message = {
       type: 'text',
-      text: 'まもなく試合が始まります！   You will Never Walk Alone🔴🔥'
+      text: 'まもなく試合が始まります！   Youll Never Walk Alone✊🔴'
     }
 
     client = Line::Bot::Client.new do |config|
