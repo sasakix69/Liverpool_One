@@ -52,10 +52,10 @@ namespace :push_line do
     time = Time.now
     SEC_PER_MIN = 60
     time = Time.at(time.to_i / SEC_PER_MIN * SEC_PER_MIN)
-    
+
     case time
-    when Brighton_Hove_Albion_FC, Rangers_FC, Arsenal_FC, Rangers_FC_2, Manchester_City_FC, West_Ham_United_FC, 
-         Nottingham_Forest_FC, AFC_Ajax, Leeds_United_FC, SSC_Napoli, Tottenham_Hotspur_FC, Southampton_FC, Aston_Villa_FC, 
+    when Brighton_Hove_Albion_FC, Rangers_FC, Arsenal_FC, Rangers_FC_2, Manchester_City_FC, West_Ham_United_FC,
+         Nottingham_Forest_FC, AFC_Ajax, Leeds_United_FC, SSC_Napoli, Tottenham_Hotspur_FC, Southampton_FC, Aston_Villa_FC,
          Leicester_City_FC, Brentford_FC, Brighton_Hove_Albion_FC_2, Chelsea_FC, Wolverhampton_Wanderers_FC, Everton_FC,
          Newcastle_United_FC, Crystal_Palace_FC, Manchester_United_FC, AFC_Bournemouth, Fulham_FC, Manchester_City_FC_2,
          Arsenal_FC_2, Leeds_United_FC_2, Nottingham_Forest_FC_2, West_Ham_United_FC_2, Tottenham_Hotspur_FC_2, Brentford_FC_2,
