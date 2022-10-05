@@ -32,4 +32,4 @@
 https://xd.adobe.com/view/1d494f26-9533-45ce-b3d9-f8ba08cf7c3e-481a/
 
 ## ER図
-https://i.gyazo.com/36aab4c75995d7705a36ba68be2f3dd4.png
+[![Image from Gyazo](https://i.gyazo.com/0ad4f77fd15abea2edbb0475c5125582.png)](https://gyazo.com/0ad4f77fd15abea2edbb0475c5125582)
