@@ -81,6 +81,7 @@ test:
 #
 production:
   <<: *default
-  database: Liverpool_One_production
-  username: Liverpool_One
+  database: clg589qmp004p9tp5hcpseihb
+  username: clg589qmo004n9tp53rilg9i4
   password: <%= ENV['LIVERPOOL_ONE_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
